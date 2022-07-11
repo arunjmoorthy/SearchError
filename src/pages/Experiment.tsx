@@ -27,7 +27,7 @@ const Experiment = ({ arr, setArr }: ExperimentProps) => {
               arr={arr}
               setArr={setArr}
             />
-        </div>
+        </div> 
     );
 }
 
