@@ -17,14 +17,20 @@ interface GridProps {
 export default function Grid({ trial, setTrials }: GridProps) {
   return (
     <div style={{ display: "table" }}>
+      {}
       {trial.map((stimuli: Stimulus) => (
-        <div>
-          {(stimuli.type === 0) ?
-            <div style={{width: "50px", height: "50px"}}></div> :
+        <div style={{ display: "table-row" }}>
+          <div style={{ display: "table-cell", paddingRight: "50px" }}>
             <div>
-              <img src={(stimuli.type === 1) ? blackL : blackL} />
+              {stimuli.type === 0 ? (
+                <div style={{ width: "50px", height: "50px" }}></div>
+              ) : (
+                <div>
+                  <img src={stimuli.type === 1 ? blackL : blackL} width="50px"/>
+                </div>
+              )}
             </div>
-          }
+          </div>
         </div>
       ))}
     </div>
