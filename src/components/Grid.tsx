@@ -24,7 +24,7 @@ export default function Grid({ arr, setArr}: GridProps) {
                         {stim.type == 0 
                         ? <div style={{width:"50px", height:"50px"}}></div>
                         : <img
-                            src={(stim.type == 1 ? {blackL} : {blackT})}
+                            src={(stim.type == 1 ? blackL : blackT)}
                             alt="none"
                             width="50px"
                         />
@@ -32,59 +32,85 @@ export default function Grid({ arr, setArr}: GridProps) {
                     </div>
                 </div>
 
+                <div style={{ display: "table-cell", paddingRight: "50px" }}>
+                    <div>
+                        {stim.type == 0 
+                        ? <div style={{width:"50px", height:"50px"}}></div>
+                        : <img
+                            src={(stim.type == 1 ? blackL : blackT)}
+                            alt="none"
+                            width="50px"
+                        />
+                    }
+                    </div>
+                </div>
 
                 <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                <img
-                    src={stim.type === 1 ? blackL : blackT}
-                    alt="none"
-                    width="50px"
-                />
+                    <div>
+                        {stim.type == 0 
+                        ? <div style={{width:"50px", height:"50px"}}></div>
+                        : <img
+                            src={(stim.type == 1 ? blackL : blackT)}
+                            alt="none"
+                            width="50px"
+                        />
+                    }
+                    </div>
                 </div>
+
                 <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                <img
-                    src={stim.type === 1 ? blackL : blackT}
-                    alt="none"
-                    width="50px"
-                />
+                    <div>
+                        {stim.type == 0 
+                        ? <div style={{width:"50px", height:"50px"}}></div>
+                        : <img
+                            src={(stim.type == 1 ? blackL : blackT)}
+                            alt="none"
+                            width="50px"
+                        />
+                    }
+                    </div>
                 </div>
-                <div
-                style={{ display: "table-cell", paddingRight: "50px" }}
-                onClick={() => {
-                    console.log("HI");
-                }}
-                >
-                <img
-                    src={stim.type === 1 ? blackL : blackT}
-                    alt="none"
-                    width="50px"
-                    onClick={() => {
-                    console.log("HI");
-                    }}
-                />
-                </div>
+
                 <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                <img
-                    src={stim.type === 1 ? blackL : blackT}
-                    alt="none"
-                    width="50px"
-                />
+                    <div>
+                        {stim.type == 0 
+                        ? <div style={{width:"50px", height:"50px"}}></div>
+                        : <img
+                            src={(stim.type == 1 ? blackL : blackT)}
+                            alt="none"
+                            width="50px"
+                        />
+                    }
+                    </div>
                 </div>
+
                 <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                <img
-                    src={stim.type === 1 ? blackL : blackT}
-                    alt="none"
-                    width="50px"
-                />
+                    <div>
+                        {stim.type == 0 
+                        ? <div style={{width:"50px", height:"50px"}}></div>
+                        : <img
+                            src={(stim.type == 1 ? blackL : blackT)}
+                            alt="none"
+                            width="50px"
+                        />
+                    }
+                    </div>
                 </div>
+
                 <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                <img
-                    src={stim.type === 1 ? blackL : blackT}
-                    alt="none"
-                    width="50px"
-                />
+                    <div>
+                        {stim.type == 0 
+                        ? <div style={{width:"50px", height:"50px"}}></div>
+                        : <img
+                            src={(stim.type == 1 ? blackL : blackT)}
+                            alt="none"
+                            width="50px"
+                        />
+                    }
+                    </div>
                 </div>
             </div>
-            ))}
+        ))}
         </div>
     );
 }

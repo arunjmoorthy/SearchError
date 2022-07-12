@@ -9,14 +9,10 @@ import { Stimulus } from './interfaces/Stimulus';
 
 function shuffle(array: number[]) {
   var m = array.length, t, i;
-
-  // While there remain elements to shuffle…
   while (m) {
 
-    // Pick a remaining element…
     i = Math.floor(Math.random() * m--);
 
-    // And swap it with the current element.
     t = array[m];
     array[m] = array[i];
     array[i] = t;
@@ -43,7 +39,7 @@ function App() {
     noT.push([shuffledLs, angles, 0]);
   }
 
-  ls = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+  let wT = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,];
 
   const withT: any[][] = [[]];
@@ -54,12 +50,18 @@ function App() {
     withT.push([shuffledLs, angles, 1]);
   }
 
-  const finArr = [...noT, ...withT];
+  const finArr = [noT, withT];
+  const finalArr = [ls, wT];
 
+  console.log(finArr);
+
+  //does useEffect re-render each page or just when the experiment page loads
+  //maybe create a trial number state and useEffect when that trial number changes
+  //this will generate the new stimuli for that specific trial
   useEffect(() => {
     let stimuli: Stimulus[] = [];
-    for (let i = 0; i < 10; i++) {
-      let stim: Stimulus = { type: 1, orientation: 90 };
+    for (let i = 0; i < 7; i++) {
+      let stim: Stimulus = { type: 1, orientation: Math.floor(Math.random() * 360) };
       stimuli.push(stim);
     }
     setArr(stimuli);
