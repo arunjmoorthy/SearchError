@@ -11,9 +11,11 @@ import Grid from "../components/Grid";
 interface ExperimentProps {
     trials: Stimulus[][];
     setTrials: Dispatch<SetStateAction<Stimulus[][]>>;
+    trialIndex: number;
+    setTrialIndex: Dispatch<SetStateAction<number>>;
 }
 
-const Experiment = ({ trials, setTrials }: ExperimentProps) => {
+const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex }: ExperimentProps) => {
 
     //if user response is correct, render success
     //if user response is wrong, render failure
@@ -23,13 +25,11 @@ const Experiment = ({ trials, setTrials }: ExperimentProps) => {
 
     return (
         <div className={styles.exp}>
-            {trials.map((trial) => 
-                <Grid
-                trial={trial}
+            <Grid
+                trial={trials[trialIndex]}
                 setTrials={setTrials}
             />
-            )}
-        </div> 
+        </div>
     );
 }
 

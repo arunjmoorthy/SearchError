@@ -37,6 +37,7 @@ function App() {
 
   const [id, setId] = useState<string>('');
   const [trials, setTrials] = useState<Stimulus[][]>([[]]);
+  const [trialndex, setTrialIndex] = useState<number>(0);
 
   useEffect(() => {
     let temp: Stimulus[][] = [[]];
@@ -55,8 +56,8 @@ function App() {
       }
       // save the full trial
       temp.push(stimuli);
+      stimuli = [];
     }
-
 
     // target present
     for (let i = 0; i < 50; i++){
@@ -72,6 +73,7 @@ function App() {
       }
       // save the full trial
       temp.push(stimuli);
+      stimuli = [];
     }
     temp = shuffleMatrix(temp);
     setTrials(temp);
@@ -92,6 +94,8 @@ function App() {
             <Experiment
               trials={trials}
               setTrials={setTrials}
+              trialIndex={trialndex}
+              setTrialIndex={setTrialIndex}
             />}
           />
         </Routes>

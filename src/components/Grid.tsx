@@ -19,7 +19,12 @@ export default function Grid({ trial, setTrials }: GridProps) {
     <div style={{ display: "table" }}>
       {trial.map((stimuli: Stimulus) => (
         <div>
-          {stimuli.type}
+          {(stimuli.type === 0) ?
+            <div style={{width: "50px", height: "50px"}}></div> :
+            <div>
+              <img src={(stimuli.type === 1) ? blackL : blackL} />
+            </div>
+          }
         </div>
       ))}
     </div>
