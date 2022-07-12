@@ -7,6 +7,18 @@ import Experiment from './pages/Experiment';
 import { Console } from 'console';
 import { Stimulus } from './interfaces/Stimulus';
 
+//shuffle 2D array
+function shuffleMatrix(arr2: Stimulus[][]){
+  for(let i = arr2.length-1; i > 0; i--){
+       const j = Math.floor(Math.random() * i)
+       const temp = arr2[i]
+       arr2[i] = arr2[j]
+       arr2[j] = temp
+  }
+  return arr2;
+}
+
+//shuffle 1D array
 function shuffle(array: number[]) {
   var m = array.length, t, i;
   while (m) {
@@ -24,47 +36,45 @@ function shuffle(array: number[]) {
 function App() {
 
   const [id, setId] = useState<string>('');
-  const [arr, setArr] = useState<Stimulus[]>([]);
+  const [trials, setTrials] = useState<Stimulus[][]>([[]]);
 
-
-  //make arr
-  let ls = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,];
-
-  const noT: any[][] = [[]];
-
-  for (let i = 0; i <= 49; i++) {
-    const shuffledLs: number[] = shuffle(ls);
-    const angles: number[] = Array.from({ length: 49 }, () => Math.floor(Math.random() * 360));
-    noT.push([shuffledLs, angles, 0]);
-  }
-
-  let wT = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,];
-
-  const withT: any[][] = [[]];
-
-  for (let i = 0; i <= 49; i++) {
-    const shuffledLs: number[] = shuffle(ls);
-    const angles: number[] = Array.from({ length: 49 }, () => Math.floor(Math.random() * 360));
-    withT.push([shuffledLs, angles, 1]);
-  }
-
-  const finArr = [noT, withT];
-  const finalArr = [ls, wT];
-
-  console.log(finArr);
-
-  //does useEffect re-render each page or just when the experiment page loads
-  //maybe create a trial number state and useEffect when that trial number changes
-  //this will generate the new stimuli for that specific trial
   useEffect(() => {
+    let temp: Stimulus[][] = [[]];
     let stimuli: Stimulus[] = [];
-    for (let i = 0; i < 7; i++) {
-      let stim: Stimulus = { type: 1, orientation: Math.floor(Math.random() * 360) };
-      stimuli.push(stim);
+    let stim: Stimulus;
+    // target absent trials
+    for (let j = 0; j < 50; j++) {
+      for (let i = 0; i < 25; i++){
+        stim = { type: 1, orientation: Math.floor(Math.random() * 360) };
+        // stimuli holds 25 Ls (a full trial)
+        stimuli.push(stim);
+      }
+      for (let i = 0; i < 24; i++){
+        stim = { type: 0, orientation: Math.floor(Math.random() * 360) };
+        stimuli.push(stim);
+      }
+      // save the full trial
+      temp.push(stimuli);
     }
-    setArr(stimuli);
+
+
+    // target present
+    for (let i = 0; i < 50; i++){
+      for (let j = 0; j < 24; j++){
+        stim = { type: 1, orientation: Math.floor(Math.random() * 360)};
+        stimuli.push(stim);
+      }
+      stimuli.push({type: 2, orientation: Math.floor(Math.random() * 360) });
+      
+      for (let j = 0; j < 24; j++){
+        stim = { type: 0, orientation: Math.floor(Math.random() * 360) };
+        stimuli.push(stim);
+      }
+      // save the full trial
+      temp.push(stimuli);
+    }
+    temp = shuffleMatrix(temp);
+    setTrials(temp);
   }, []);
 
   return (
@@ -80,8 +90,8 @@ function App() {
           <Route path="/instructions" element={<Instructions />} />
           <Route path="/experiment" element={
             <Experiment
-              arr={arr}
-              setArr={setArr}
+              trials={trials}
+              setTrials={setTrials}
             />}
           />
         </Routes>

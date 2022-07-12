@@ -10,107 +10,18 @@ import { SetStateAction, Dispatch } from "react";
 import { height } from "@mui/system";
 
 interface GridProps {
-    arr: Stimulus[];
-    setArr: Dispatch<SetStateAction<Stimulus[]>>;
+  trial: Stimulus[];
+  setTrials: Dispatch<SetStateAction<Stimulus[][]>>;
 }
 
-export default function Grid({ arr, setArr}: GridProps) {
-    return(
-        <div style={{ display: "table" }}>
-            {arr.map((stim) => (
-            <div style={{ display: "table-row" }}>
-                <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                    <div>
-                        {stim.type == 0 
-                        ? <div style={{width:"50px", height:"50px"}}></div>
-                        : <img
-                            src={(stim.type == 1 ? blackL : blackT)}
-                            alt="none"
-                            width="50px"
-                        />
-                    }
-                    </div>
-                </div>
-
-                <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                    <div>
-                        {stim.type == 0 
-                        ? <div style={{width:"50px", height:"50px"}}></div>
-                        : <img
-                            src={(stim.type == 1 ? blackL : blackT)}
-                            alt="none"
-                            width="50px"
-                        />
-                    }
-                    </div>
-                </div>
-
-                <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                    <div>
-                        {stim.type == 0 
-                        ? <div style={{width:"50px", height:"50px"}}></div>
-                        : <img
-                            src={(stim.type == 1 ? blackL : blackT)}
-                            alt="none"
-                            width="50px"
-                        />
-                    }
-                    </div>
-                </div>
-
-                <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                    <div>
-                        {stim.type == 0 
-                        ? <div style={{width:"50px", height:"50px"}}></div>
-                        : <img
-                            src={(stim.type == 1 ? blackL : blackT)}
-                            alt="none"
-                            width="50px"
-                        />
-                    }
-                    </div>
-                </div>
-
-                <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                    <div>
-                        {stim.type == 0 
-                        ? <div style={{width:"50px", height:"50px"}}></div>
-                        : <img
-                            src={(stim.type == 1 ? blackL : blackT)}
-                            alt="none"
-                            width="50px"
-                        />
-                    }
-                    </div>
-                </div>
-
-                <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                    <div>
-                        {stim.type == 0 
-                        ? <div style={{width:"50px", height:"50px"}}></div>
-                        : <img
-                            src={(stim.type == 1 ? blackL : blackT)}
-                            alt="none"
-                            width="50px"
-                        />
-                    }
-                    </div>
-                </div>
-
-                <div style={{ display: "table-cell", paddingRight: "50px" }}>
-                    <div>
-                        {stim.type == 0 
-                        ? <div style={{width:"50px", height:"50px"}}></div>
-                        : <img
-                            src={(stim.type == 1 ? blackL : blackT)}
-                            alt="none"
-                            width="50px"
-                        />
-                    }
-                    </div>
-                </div>
-            </div>
-        ))}
+export default function Grid({ trial, setTrials }: GridProps) {
+  return (
+    <div style={{ display: "table" }}>
+      {trial.map((stimuli: Stimulus) => (
+        <div>
+          {stimuli.type}
         </div>
-    );
+      ))}
+    </div>
+  );
 }

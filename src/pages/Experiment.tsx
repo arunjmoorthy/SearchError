@@ -9,11 +9,11 @@ import styles from "../styles/Experiment.module.css";
 import Grid from "../components/Grid";
 
 interface ExperimentProps {
-    arr: Stimulus[];
-    setArr: Dispatch<SetStateAction<Stimulus[]>>;
+    trials: Stimulus[][];
+    setTrials: Dispatch<SetStateAction<Stimulus[][]>>;
 }
 
-const Experiment = ({ arr, setArr }: ExperimentProps) => {
+const Experiment = ({ trials, setTrials }: ExperimentProps) => {
 
     //if user response is correct, render success
     //if user response is wrong, render failure
@@ -23,10 +23,12 @@ const Experiment = ({ arr, setArr }: ExperimentProps) => {
 
     return (
         <div className={styles.exp}>
-            <Grid
-              arr={arr}
-              setArr={setArr}
+            {trials.map((trial) => 
+                <Grid
+                trial={trial}
+                setTrials={setTrials}
             />
+            )}
         </div> 
     );
 }
