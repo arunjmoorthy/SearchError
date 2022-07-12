@@ -19,7 +19,7 @@ function shuffleMatrix(arr2: Stimulus[][]){
 }
 
 //shuffle 1D array
-function shuffle(array: number[]) {
+function shuffle(array: Stimulus[]) {
   var m = array.length, t, i;
   while (m) {
 
@@ -54,6 +54,7 @@ function App() {
         stim = { type: 0, orientation: Math.floor(Math.random() * 360) };
         stimuli.push(stim);
       }
+      stimuli = shuffle(stimuli);
       // save the full trial
       temp.push(stimuli);
       stimuli = [];
@@ -72,6 +73,7 @@ function App() {
         stimuli.push(stim);
       }
       // save the full trial
+      stimuli = shuffle(stimuli);
       temp.push(stimuli);
       stimuli = [];
     }
