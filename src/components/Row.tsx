@@ -55,7 +55,7 @@ export default function Row({ trial, startIndex, setTrialIndex, trialIndex, succ
                 <div>
                     <img src={stimulus.type === 1 ? blackL : blackT} width="50px" 
                     style={{transform: `rotate(${stimulus.orientation}deg)`}} 
-                    onClick={() => {{stimulus.type === 2 ? {handleClick}: undefined} }}
+                    // onClick={() => {{stimulus.type === 2 ? {handleClick}: undefined} }}
                     />
                 </div>
                 )}

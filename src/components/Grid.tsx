@@ -19,6 +19,8 @@ interface GridProps {
   setSuccess: Dispatch<SetStateAction<boolean>>;
 }
 
+const isTrue = true;
+
 export default function Grid({ trial, setTrials, trialIndex, setTrialIndex, success, setSuccess }: GridProps) {
   return (
     <div style={{ display: "table" }}>

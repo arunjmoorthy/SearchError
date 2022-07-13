@@ -45,7 +45,7 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex }: Experiment
                     <div>
                         {/* how to make the success/failure component only show for a couple seconds */}
                         {success ? <Success /> : <Failure />}
-                        {success = false}
+                        {success = true}
                     </div>
                 </div>
             ))}
