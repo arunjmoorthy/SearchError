@@ -39,6 +39,7 @@ function App() {
   const [id, setId] = useState<string>('');
   const [trials, setTrials] = useState<Stimulus[][]>([[]]);
   const [trialndex, setTrialIndex] = useState<number>(0);
+  const [results, setResults] = useState<number[]>([]);
 
   useEffect(() => {
     let temp: Stimulus[][] = [[]];
@@ -47,12 +48,12 @@ function App() {
     // target absent trials
     for (let j = 0; j < 50; j++) {
       for (let i = 0; i < 25; i++){
-        stim = { type: 1, orientation: Math.floor(Math.random() * 360) };
+        stim = { type: 1, orientation: Math.floor(Math.random() * 360), category: 0};
         // stimuli holds 25 Ls (a full trial)
         stimuli.push(stim);
       }
       for (let i = 0; i < 24; i++){
-        stim = { type: 0, orientation: Math.floor(Math.random() * 360) };
+        stim = { type: 0, orientation: Math.floor(Math.random() * 360), category: 0 };
         stimuli.push(stim);
       }
       stimuli = shuffle(stimuli);
@@ -64,13 +65,13 @@ function App() {
     // target present
     for (let i = 0; i < 50; i++){
       for (let j = 0; j < 24; j++){
-        stim = { type: 1, orientation: Math.floor(Math.random() * 360)};
+        stim = { type: 1, orientation: Math.floor(Math.random() * 360), category: 1};
         stimuli.push(stim);
       }
-      stimuli.push({type: 2, orientation: Math.floor(Math.random() * 360) });
+      stimuli.push({type: 2, orientation: Math.floor(Math.random() * 360), category: 1});
       
       for (let j = 0; j < 24; j++){
-        stim = { type: 0, orientation: Math.floor(Math.random() * 360) };
+        stim = { type: 0, orientation: Math.floor(Math.random() * 360), category: 1 };
         stimuli.push(stim);
       }
       // save the full trial
@@ -99,6 +100,8 @@ function App() {
               setTrials={setTrials}
               trialIndex={trialndex}
               setTrialIndex={setTrialIndex}
+              results={results}
+              setResults={setResults}
             />}
           />
           <Route path="/conclusion" element={<Conclusion />} />

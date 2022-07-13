@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Success from "../components/Success";
-import Failure from "../components/Failure";
 import blackL from "../assets/blackL.png";
 import blackT from "../assets/blackT.png";
 import { Stimulus } from "../interfaces/Stimulus";
@@ -18,31 +16,105 @@ interface GridProps {
   success: boolean;
   setSuccess: Dispatch<SetStateAction<boolean>>;
   setInterVisible: Dispatch<SetStateAction<boolean>>;
+  results: number[];
+  setResults: Dispatch<SetStateAction<number[]>>;
 }
 
-const isTrue = true;
-
-export default function Grid({ trial, setTrials, trialIndex, setTrialIndex, success,
-  setSuccess, setInterVisible }: GridProps) {
-
-
-
+export default function Grid({
+  trial,
+  setTrials,
+  trialIndex,
+  setTrialIndex,
+  success,
+  setSuccess,
+  setInterVisible,
+  results,
+  setResults
+}: GridProps) {
   return (
-    <div style={{ display: "table" }}>
-      <Row trial={trial} startIndex={0} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
-        success={success} setSuccess={setSuccess} setInterVisible={setInterVisible} />
-      <Row trial={trial} startIndex={7} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
-        success={success} setSuccess={setSuccess} setInterVisible={setInterVisible} />
-      <Row trial={trial} startIndex={14} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
-        success={success} setSuccess={setSuccess} setInterVisible={setInterVisible} />
-      <Row trial={trial} startIndex={21} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
-        success={success} setSuccess={setSuccess} setInterVisible={setInterVisible} />
-      <Row trial={trial} startIndex={28} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
-        success={success} setSuccess={setSuccess} setInterVisible={setInterVisible} />
-      <Row trial={trial} startIndex={35} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
-        success={success} setSuccess={setSuccess} setInterVisible={setInterVisible} />
-        <Row trial={trial} startIndex={42} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
-        success={success} setSuccess={setSuccess} setInterVisible={setInterVisible} />
+    <div>
+      <div>
+        <h1>Trial {trialIndex+1}</h1>
+      </div>
+      <div style={{ display: "table" }}>
+        <Row
+          trial={trial}
+          startIndex={0}
+          setTrialIndex={setTrialIndex}
+          trialIndex={trialIndex}
+          success={success}
+          setSuccess={setSuccess}
+          setInterVisible={setInterVisible}
+          setResults={setResults}
+          results={results}
+        />
+        <Row
+          trial={trial}
+          startIndex={7}
+          setTrialIndex={setTrialIndex}
+          trialIndex={trialIndex}
+          success={success}
+          setSuccess={setSuccess}
+          setInterVisible={setInterVisible}
+          setResults={setResults}
+          results={results}
+        />
+        <Row
+          trial={trial}
+          startIndex={14}
+          setTrialIndex={setTrialIndex}
+          trialIndex={trialIndex}
+          success={success}
+          setSuccess={setSuccess}
+          setInterVisible={setInterVisible}
+          setResults={setResults}
+          results={results}
+        />
+        <Row
+          trial={trial}
+          startIndex={21}
+          setTrialIndex={setTrialIndex}
+          trialIndex={trialIndex}
+          success={success}
+          setSuccess={setSuccess}
+          setInterVisible={setInterVisible}
+          setResults={setResults}
+          results={results}
+        />
+        <Row
+          trial={trial}
+          startIndex={28}
+          setTrialIndex={setTrialIndex}
+          trialIndex={trialIndex}
+          success={success}
+          setSuccess={setSuccess}
+          setInterVisible={setInterVisible}
+          setResults={setResults}
+          results={results}
+        />
+        <Row
+          trial={trial}
+          startIndex={35}
+          setTrialIndex={setTrialIndex}
+          trialIndex={trialIndex}
+          success={success}
+          setSuccess={setSuccess}
+          setInterVisible={setInterVisible}
+          setResults={setResults}
+          results={results}
+        />
+        <Row
+          trial={trial}
+          startIndex={42}
+          setTrialIndex={setTrialIndex}
+          trialIndex={trialIndex}
+          success={success}
+          setSuccess={setSuccess}
+          setInterVisible={setInterVisible}
+          setResults={setResults}
+          results={results}
+        />
+      </div>
     </div>
   );
 }

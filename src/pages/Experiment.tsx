@@ -2,8 +2,6 @@ import { SetStateAction, Dispatch } from "react";
 import Result from "./Result";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Success from "../components/Success";
-import Failure from "../components/Failure";
 import { Stimulus } from "../interfaces/Stimulus";
 import styles from "../styles/Experiment.module.css";
 import Grid from "../components/Grid";
@@ -14,9 +12,11 @@ interface ExperimentProps {
     setTrials: Dispatch<SetStateAction<Stimulus[][]>>;
     trialIndex: number;
     setTrialIndex: Dispatch<SetStateAction<number>>;
+    results: number[];
+    setResults: Dispatch<SetStateAction<number[]>>;
 }
 
-const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex }: ExperimentProps) => {
+const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex, results, setResults}: ExperimentProps) => {
 
     //if user response is correct, render success
     //if user response is wrong, render failure
@@ -33,7 +33,7 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex }: Experiment
 
     return (
         <div className={styles.exp}>
-            {(interVisible) ? <Result setInterVisible={setInterVisible} /> :
+            {(interVisible) ? <Result success={success} setInterVisible={setInterVisible} /> :
                 <Grid
                     trial={trials[trialIndex]}
                     setTrials={setTrials}
@@ -42,15 +42,17 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex }: Experiment
                     success={success}
                     setSuccess={setSuccess}
                     setInterVisible={setInterVisible}
+                    results={results}
+                    setResults={setResults}
+                    
                 />
             }
-
+            
             {/* <div>
                 <Button variant="contained" onClick={() => { navigate("/conclusion"); }}>
                     Finish Experiment!
                 </Button>
             </div> */}
-
         </div>
     );
 }
