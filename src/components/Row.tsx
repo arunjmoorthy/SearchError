@@ -23,7 +23,7 @@ export default function Row({ trial, startIndex }: RowProps) {
 
     useEffect(() => {
         let temp: Stimulus[] = [];
-        for (let i = startIndex; i < startIndex + 7; i++){
+        for (let i = startIndex; i < startIndex + 7; i++) {
             temp.push(trial[i]);
         }
         setImages(temp);
