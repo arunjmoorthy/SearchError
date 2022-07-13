@@ -13,18 +13,29 @@ import Row from "./Row";
 interface GridProps {
   trial: Stimulus[];
   setTrials: Dispatch<SetStateAction<Stimulus[][]>>;
+  setTrialIndex: Dispatch<SetStateAction<number>>;
+  trialIndex: number;
+  success: boolean;
+  setSuccess: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Grid({ trial, setTrials }: GridProps) {
+export default function Grid({ trial, setTrials, trialIndex, setTrialIndex, success, setSuccess }: GridProps) {
   return (
     <div style={{ display: "table" }}>
-      <Row trial={trial} startIndex={0}/>
-      <Row trial={trial} startIndex={7}/>
-      <Row trial={trial} startIndex={14}/>
-      <Row trial={trial} startIndex={21}/>
-      <Row trial={trial} startIndex={28}/>
-      <Row trial={trial} startIndex={35}/>
-      <Row trial={trial} startIndex={42}/>
+      <Row trial={trial} startIndex={0} setTrialIndex={setTrialIndex} trialIndex={trialIndex} 
+        success={success} setSuccess={setSuccess}/>
+      <Row trial={trial} startIndex={7} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
+        success={success} setSuccess={setSuccess}/>
+      <Row trial={trial} startIndex={14} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
+        success={success} setSuccess={setSuccess}/>
+      <Row trial={trial} startIndex={21} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
+        success={success} setSuccess={setSuccess}/>
+      <Row trial={trial} startIndex={28} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
+        success={success} setSuccess={setSuccess}/>
+      <Row trial={trial} startIndex={35} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
+        success={success} setSuccess={setSuccess}/>
+      <Row trial={trial} startIndex={42} setTrialIndex={setTrialIndex} trialIndex={trialIndex}
+        success={success} setSuccess={setSuccess}/>
     </div>
   );
 }

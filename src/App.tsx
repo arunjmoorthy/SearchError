@@ -6,6 +6,7 @@ import Instructions from './pages/Instructions';
 import Experiment from './pages/Experiment';
 import { Console } from 'console';
 import { Stimulus } from './interfaces/Stimulus';
+import Conclusion from './pages/Conclusion';
 
 //shuffle 2D array
 function shuffleMatrix(arr2: Stimulus[][]){
@@ -100,6 +101,7 @@ function App() {
               setTrialIndex={setTrialIndex}
             />}
           />
+          <Route path="/conclusion" element={<Conclusion />} />
         </Routes>
       </div>
     </Router>

@@ -14,9 +14,13 @@ import { start } from "repl";
 interface RowProps {
   trial: Stimulus[];
   startIndex: number;
+  setTrialIndex: Dispatch<SetStateAction<number>>;
+  trialIndex: number;
+  success: boolean;
+  setSuccess: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Row({ trial, startIndex }: RowProps) {
+export default function Row({ trial, startIndex, setTrialIndex, trialIndex, success, setSuccess }: RowProps) {
   const [images, setImages] = useState<Stimulus[]>([]);
 
   useEffect(() => {
@@ -27,8 +31,20 @@ export default function Row({ trial, startIndex }: RowProps) {
     setImages(temp);
   }, []);
 
+  const handleClick = (event: React.MouseEvent<HTMLInputElement>) => {
+    setTrialIndex(trialIndex+1);
+    setSuccess(true);
+  }
+
+  const handleAnswerChange = (event: KeyboardEvent) => {
+    if(event.key == " "){
+      //check if it is an absent trial
+      //if so, set success = true
+    }
+  } 
+
   return (
-    <div style={{}}>
+    <div>
         <div style={{ display: "table-row" }}>
         {images.map((stimulus: Stimulus) => (
             <div style={{ display: "table-cell", paddingRight: "50px" }}>
@@ -37,7 +53,10 @@ export default function Row({ trial, startIndex }: RowProps) {
                 <div style={{ width: "50px", height: "50px" }}></div>
                 ) : (
                 <div>
-                    <img src={stimulus.type === 1 ? blackL : blackT} width="50px" style={{transform: `rotate(${stimulus.orientation}deg)`}}/>
+                    <img src={stimulus.type === 1 ? blackL : blackT} width="50px" 
+                    style={{transform: `rotate(${stimulus.orientation}deg)`}} 
+                    onClick={() => {{stimulus.type === 2 ? {handleClick}: undefined} }}
+                    />
                 </div>
                 )}
             </div>

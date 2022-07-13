@@ -7,6 +7,7 @@ import Failure from "../components/Failure";
 import { Stimulus } from "../interfaces/Stimulus";
 import styles from "../styles/Experiment.module.css";
 import Grid from "../components/Grid";
+import Button from '@mui/material/Button';
 
 interface ExperimentProps {
     trials: Stimulus[][];
@@ -19,16 +20,42 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex }: Experiment
 
     //if user response is correct, render success
     //if user response is wrong, render failure
-    const [intermediate, setIntermediate] = useState<boolean>(false);
+    let [success, setSuccess] = useState<boolean>(false);
+
+    const [interVisible, setInterVisible] = useState<boolean>(false);
+
+     const handleButtonClick = () => {
+        setInterVisible(true);
+     }
 
     const navigate = useNavigate();
 
     return (
         <div className={styles.exp}>
-            <Grid
-                trial={trials[trialIndex]}
-                setTrials={setTrials}
-            />
+            {trials.map((stimuli: Stimulus[]) => (
+                <div>
+                    <Grid
+                        trial={trials[trialIndex]}
+                        setTrials={setTrials}
+                        setTrialIndex={setTrialIndex}
+                        trialIndex={trialIndex}
+                        success={success}
+                        setSuccess={setSuccess}
+                    />
+                    <div>
+                        {/* how to make the success/failure component only show for a couple seconds */}
+                        {success ? <Success /> : <Failure />}
+                        {success = false}
+                    </div>
+                </div>
+            ))}
+
+            <div>
+                <Button variant="contained" onClick={() => { navigate("/conclusion"); }}>
+                    Finish Experiment!
+                </Button>
+            </div>
+            
         </div>
     );
 }
