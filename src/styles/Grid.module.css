@@ -1,0 +1,13 @@
+.header{
+    text-align: center;
+}
+
+.table{
+    border-width: 10px;
+    border-style: solid;
+    padding: 20px;
+}
+
+.totGrid{
+    padding-top: 30px;
+}

@@ -1,4 +1,5 @@
 import { useEffect, Dispatch, SetStateAction } from "react";
+import styles from "../styles/Result.module.css";
 
 interface ResultProps {
   setInterVisible: Dispatch<SetStateAction<boolean>>;
@@ -15,7 +16,7 @@ const Result = ({ setInterVisible, success }: ResultProps) => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.res}>
       {(success) ? (
         <h2>Congrats! You got this trial correct!</h2>
       ) : (

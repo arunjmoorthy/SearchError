@@ -44,15 +44,20 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex, results, set
                     setInterVisible={setInterVisible}
                     results={results}
                     setResults={setResults}
-                    
                 />
             }
-            
-            {/* <div>
-                <Button variant="contained" onClick={() => { navigate("/conclusion"); }}>
+
+            {(trialIndex == 3) ? 
+                <Button id="endButton" variant="contained" onClick={() => { navigate("/conclusion"); }}>
                     Finish Experiment!
                 </Button>
-            </div> */}
+                :
+                <p></p>
+            }
+            
+            <div>
+                
+            </div>
         </div>
     );
 }

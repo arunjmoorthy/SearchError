@@ -3,7 +3,7 @@ import { useState } from "react";
 import blackL from "../assets/blackL.png";
 import blackT from "../assets/blackT.png";
 import { Stimulus } from "../interfaces/Stimulus";
-import styles from "../styles/Experiment.module.css";
+import styles from "../styles/Grid.module.css";
 import { SetStateAction, Dispatch } from "react";
 import { height } from "@mui/system";
 import Row from "./Row";
@@ -32,11 +32,11 @@ export default function Grid({
   setResults
 }: GridProps) {
   return (
-    <div>
-      <div>
+    <div className={styles.totGrid}>
+      <div className={styles.header}>
         <h1>Trial {trialIndex+1}</h1>
       </div>
-      <div style={{ display: "table" }}>
+      <div className={styles.table} style={{ display: "table" }}>
         <Row
           trial={trial}
           startIndex={0}
