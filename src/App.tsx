@@ -102,22 +102,8 @@ function App() {
               setResults={setResults}
             />}
           />
-<<<<<<< HEAD
-          <Route path="/quickbreak" element={<Intermediate />} />
-          <Route path="/experiment" element={
-              <Experiment trials={trials}
-              setTrials={setTrials}
-              trialIndex={trialndex}
-              setTrialIndex={setTrialIndex}
-              results={results}
-              setResults={setResults}/>
-          }
-          />
           {/* <Route element={<Conclusion />}></Route> */}
         </Routes>
-=======
-          </Routes>
->>>>>>> 05d7526bc01871c69f26fa8ad82ba1a9e2a88a32
       </div>
     </Router>
   );
