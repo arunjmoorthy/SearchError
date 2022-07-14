@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Stimulus } from "../interfaces/Stimulus";
 import styles from "../styles/Experiment.module.css";
 import Grid from "../components/Grid";
+import Intermediate from "./Intermediate";
 import Button from '@mui/material/Button';
 
 interface ExperimentProps {
@@ -33,30 +34,20 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex, results, set
 
     return (
         <div className={styles.exp}>
-            {(interVisible) ? <Result success={success} setInterVisible={setInterVisible} /> :
-                <Grid
-                    trial={trials[trialIndex]}
-                    setTrials={setTrials}
-                    setTrialIndex={setTrialIndex}
-                    trialIndex={trialIndex}
-                    success={success}
-                    setSuccess={setSuccess}
-                    setInterVisible={setInterVisible}
-                    results={results}
-                    setResults={setResults}
-                />
-            }
-
-            {(trialIndex == 3) ? 
-                <Button id="endButton" variant="contained" onClick={() => { navigate("/conclusion"); }}>
-                    Finish Experiment!
-                </Button>
-                :
-                <p></p>
-            }
-            
             <div>
-                
+                {(interVisible) ? <Result success={success} setInterVisible={setInterVisible} /> :
+                    <Grid
+                        trial={trials[trialIndex]}
+                        setTrials={setTrials}
+                        setTrialIndex={setTrialIndex}
+                        trialIndex={trialIndex}
+                        success={success}
+                        setSuccess={setSuccess}
+                        setInterVisible={setInterVisible}
+                        results={results}
+                        setResults={setResults}
+                    />
+                }
             </div>
         </div>
     );
