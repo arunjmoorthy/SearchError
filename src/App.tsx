@@ -10,12 +10,12 @@ import Conclusion from './pages/Conclusion';
 import Intermediate from './pages/Intermediate';
 
 //shuffle 2D array
-function shuffleMatrix(arr2: Stimulus[][]){
-  for(let i = arr2.length-1; i > 0; i--){
-       const j = Math.floor(Math.random() * i)
-       const temp = arr2[i]
-       arr2[i] = arr2[j]
-       arr2[j] = temp
+function shuffleMatrix(arr2: Stimulus[][]) {
+  for (let i = arr2.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = arr2[i]
+    arr2[i] = arr2[j]
+    arr2[j] = temp
   }
   return arr2;
 }
@@ -45,12 +45,12 @@ function App() {
     let stim: Stimulus;
     // target absent trials
     for (let j = 0; j < 50; j++) {
-      for (let i = 0; i < 25; i++){
-        stim = { type: 1, orientation: Math.floor(Math.random() * 360), category: 0};
+      for (let i = 0; i < 25; i++) {
+        stim = { type: 1, orientation: Math.floor(Math.random() * 360), category: 0 };
         // stimuli holds 25 Ls (a full trial)
         stimuli.push(stim);
       }
-      for (let i = 0; i < 24; i++){
+      for (let i = 0; i < 24; i++) {
         stim = { type: 0, orientation: Math.floor(Math.random() * 360), category: 0 };
         stimuli.push(stim);
       }
@@ -61,14 +61,14 @@ function App() {
     }
 
     // target present
-    for (let i = 0; i < 50; i++){
-      for (let j = 0; j < 24; j++){
-        stim = { type: 1, orientation: Math.floor(Math.random() * 360), category: 1};
+    for (let i = 0; i < 50; i++) {
+      for (let j = 0; j < 24; j++) {
+        stim = { type: 1, orientation: Math.floor(Math.random() * 360), category: 1 };
         stimuli.push(stim);
       }
-      stimuli.push({type: 2, orientation: Math.floor(Math.random() * 360), category: 1});
-      
-      for (let j = 0; j < 24; j++){
+      stimuli.push({ type: 2, orientation: Math.floor(Math.random() * 360), category: 1 });
+
+      for (let j = 0; j < 24; j++) {
         stim = { type: 0, orientation: Math.floor(Math.random() * 360), category: 1 };
         stimuli.push(stim);
       }
@@ -102,6 +102,7 @@ function App() {
               setResults={setResults}
             />}
           />
+<<<<<<< HEAD
           <Route path="/quickbreak" element={<Intermediate />} />
           <Route path="/experiment" element={
               <Experiment trials={trials}
@@ -114,6 +115,9 @@ function App() {
           />
           {/* <Route element={<Conclusion />}></Route> */}
         </Routes>
+=======
+          </Routes>
+>>>>>>> 05d7526bc01871c69f26fa8ad82ba1a9e2a88a32
       </div>
     </Router>
   );
