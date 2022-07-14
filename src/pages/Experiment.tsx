@@ -22,6 +22,7 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex, results, set
     //if user response is correct, render success
     //if user response is wrong, render failure
     let [success, setSuccess] = useState<boolean>(false);
+    let intermediate = false;
 
     // intertrial screen
     const [interVisible, setInterVisible] = useState<boolean>(false);
@@ -48,8 +49,7 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex, results, set
                         setResults={setResults}
                     />
                 }
-
-                {/* {(trialIndex == 10) ? navigate("/quickbreak") : <p></p>} */}
+                {(trialIndex == 100) ? (<Intermediate trialIndex={trialIndex} intermediate={intermediate}/>) : <p></p>}
 
             </div>
         </div>
