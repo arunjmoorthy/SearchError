@@ -18,6 +18,8 @@ interface GridProps {
   setInterVisible: Dispatch<SetStateAction<boolean>>;
   results: number[];
   setResults: Dispatch<SetStateAction<number[]>>;
+  intermediate: boolean;
+  setIntermediate: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function Grid({
@@ -29,7 +31,9 @@ export default function Grid({
   setSuccess,
   setInterVisible,
   results,
-  setResults
+  setResults,
+  intermediate,
+  setIntermediate
 }: GridProps) {
 
   console.log(trialIndex);
@@ -49,6 +53,8 @@ export default function Grid({
           setInterVisible={setInterVisible}
           setResults={setResults}
           results={results}
+          intermediate={intermediate}
+          setIntermediate={setIntermediate}
         />
         <Row
           trial={trial}
@@ -60,6 +66,8 @@ export default function Grid({
           setInterVisible={setInterVisible}
           setResults={setResults}
           results={results}
+          intermediate={intermediate}
+          setIntermediate={setIntermediate}
         />
         <Row
           trial={trial}
@@ -71,6 +79,8 @@ export default function Grid({
           setInterVisible={setInterVisible}
           setResults={setResults}
           results={results}
+          intermediate={intermediate}
+          setIntermediate={setIntermediate}
         />
         <Row
           trial={trial}
@@ -82,6 +92,8 @@ export default function Grid({
           setInterVisible={setInterVisible}
           setResults={setResults}
           results={results}
+          intermediate={intermediate}
+          setIntermediate={setIntermediate}
         />
         <Row
           trial={trial}
@@ -93,6 +105,8 @@ export default function Grid({
           setInterVisible={setInterVisible}
           setResults={setResults}
           results={results}
+          intermediate={intermediate}
+          setIntermediate={setIntermediate}
         />
         <Row
           trial={trial}
@@ -104,6 +118,8 @@ export default function Grid({
           setInterVisible={setInterVisible}
           setResults={setResults}
           results={results}
+          intermediate={intermediate}
+          setIntermediate={setIntermediate}
         />
         <Row
           trial={trial}
@@ -115,6 +131,8 @@ export default function Grid({
           setInterVisible={setInterVisible}
           setResults={setResults}
           results={results}
+          intermediate={intermediate}
+          setIntermediate={setIntermediate}
         />
       </div>
     </div>

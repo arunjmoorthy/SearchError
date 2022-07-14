@@ -19,6 +19,8 @@ interface RowProps {
   setInterVisible: Dispatch<SetStateAction<boolean>>;
   results: number[];
   setResults: Dispatch<SetStateAction<number[]>>;
+  intermediate: boolean;
+  setIntermediate: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function Row({
@@ -30,11 +32,18 @@ export default function Row({
   setSuccess,
   setInterVisible,
   results,
-  setResults
+  setResults,
+  intermediate,
+  setIntermediate
 }: RowProps) {
   const [images, setImages] = useState<Stimulus[]>([]);
 
+  const navigate = useNavigate();
+
   const handleClick = () => {
+    if(trialIndex === 100 && intermediate === true){
+      navigate("/conclusion");
+    }
     // if trial index === 1 and you've seen the intermediate
     // -> router.push
     setTrialIndex(trialIndex + 1);
@@ -53,6 +62,11 @@ export default function Row({
   // handler for keypress
   // identify if press is a space -> switch the boolean state
   const handleKeyDown = (event: KeyboardEvent) => {
+    
+    if(trialIndex === 100 && intermediate === true){
+      navigate("/conclusion");
+    }
+
     if (event.key == ' ') {
       if (trial[1].category == 0) {
         setSuccess(true);

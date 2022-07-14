@@ -66,6 +66,8 @@ const Experiment = ({
                 setInterVisible={setInterVisible}
                 results={results}
                 setResults={setResults}
+                intermediate={intermediate}
+                setIntermediate={setIntermediate}
               />
             )}
           </div>
