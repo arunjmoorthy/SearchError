@@ -42,7 +42,7 @@ const Experiment = ({
   return (
     <div className={styles.exp}>
       <div>
-        {(trialIndex === 100 && intermediate == false) ? (
+        {(trialIndex === 100) ? (
             <div>
                 <Intermediate
                     intermediate={intermediate}

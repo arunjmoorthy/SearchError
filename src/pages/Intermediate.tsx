@@ -33,11 +33,17 @@ export default function Intermediate({
     };
   });
 
-  return(
+  return (
     <div className={styles.interText}>
-        <h2>100 more trials! Almost done!</h2>
-        <h1>Press the Enter Key to Continue</h1>
+      {(!intermediate) ?
+        <div>
+          <h2>100 more trials! Almost done!</h2>
+          <h1>Press the Enter Key to Continue</h1>
+        </div> :
+        <p>Thank you so much for doing this experiment. We will pay you the rate mentioned before shortly. Thank you!</p>
+
+      }
     </div>
   );
-        
+
 }
