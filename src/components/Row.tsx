@@ -41,14 +41,15 @@ export default function Row({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if(trialIndex === 100 && intermediate === true){
+    if (trialIndex === 100 && intermediate === true) {
       navigate("/conclusion");
+    } else {
+      // if trial index === 1 and you've seen the intermediate
+      // -> router.push
+      setTrialIndex(trialIndex + 1);
+      setSuccess(true);
+      setInterVisible(true);
     }
-    // if trial index === 1 and you've seen the intermediate
-    // -> router.push
-    setTrialIndex(trialIndex + 1);
-    setSuccess(true);
-    setInterVisible(true);
   };
 
   useEffect(() => {
@@ -62,19 +63,20 @@ export default function Row({
   // handler for keypress
   // identify if press is a space -> switch the boolean state
   const handleKeyDown = (event: KeyboardEvent) => {
-    
-    if(trialIndex === 100 && intermediate === true){
-      navigate("/conclusion");
-    }
 
     if (event.key == ' ') {
-      if (trial[1].category == 0) {
+
+      if (trialIndex === 100 && intermediate) {
+        navigate("/conclusion");
+        return;
+      }
+
+      if (intermediate && trial[1].category === 0) {
         setSuccess(true);
         let arr: number[] = results;
         arr.push(1);
         setResults(arr);
-      }
-      else {
+      } else if (intermediate && trial[1].category === 1) {
         let arr: number[] = results;
         arr.push(0);
         setResults(arr);
