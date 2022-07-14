@@ -24,14 +24,11 @@ function shuffleMatrix(arr2: Stimulus[][]){
 function shuffle(array: Stimulus[]) {
   var m = array.length, t, i;
   while (m) {
-
     i = Math.floor(Math.random() * m--);
-
     t = array[m];
     array[m] = array[i];
     array[i] = t;
   }
-
   return array;
 }
 
@@ -105,7 +102,7 @@ function App() {
               setResults={setResults}
             />}
           />
-          <Route element={<Intermediate />} />
+          <Route path="/quickbreak" element={<Intermediate />} />
           <Route path="/experiment" element={
               <Experiment trials={trials}
               setTrials={setTrials}

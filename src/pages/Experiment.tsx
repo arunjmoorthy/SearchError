@@ -48,6 +48,9 @@ const Experiment = ({ trials, setTrials, trialIndex, setTrialIndex, results, set
                         setResults={setResults}
                     />
                 }
+
+                {/* {(trialIndex == 10) ? navigate("/quickbreak") : <p></p>} */}
+
             </div>
         </div>
     );
