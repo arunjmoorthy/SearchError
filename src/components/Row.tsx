@@ -35,6 +35,8 @@ export default function Row({
   const [images, setImages] = useState<Stimulus[]>([]);
 
   const handleClick = () => {
+    // if trial index === 1 and you've seen the intermediate
+    // -> router.push
     setTrialIndex(trialIndex + 1);
     setSuccess(true);
     setInterVisible(true);
