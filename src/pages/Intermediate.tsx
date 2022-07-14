@@ -1,22 +1,43 @@
-import { useNavigate } from "react-router-dom";
 import Experiment from "./Experiment";
 import { useEffect } from "react";
 import { BooleanLiteral } from "typescript";
+import { SetStateAction, Dispatch } from "react";
+import styles from "../styles/Intermediate.module.css";
 
-interface IntermediateProps{
-    trialIndex: number;
-    intermediate: boolean;
+interface IntermediateProps {
+  trialIndex: number;
+  intermediate: boolean;
+  setTrialIndex: Dispatch<SetStateAction<number>>;
+  setIntermediate: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Intermediate( {trialIndex, intermediate}: IntermediateProps){
-    useEffect(() => {
-        trialIndex = 0;
-        intermediate = true;
-    }, [])
+export default function Intermediate({
+  setTrialIndex,
+  setIntermediate,
+  trialIndex,
+  intermediate,
+}: IntermediateProps) {
 
-    const navigate = useNavigate();
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      setTrialIndex(0);
+      setIntermediate(true);
+    }
+  };
 
-    return(
+  // add the event listener (for key presses)
+  useEffect(() => {
+    window.addEventListener("keyup", handleKeyDown);
+    return () => {
+      window.removeEventListener("keyup", handleKeyDown);
+    };
+  });
+
+  return(
+    <div className={styles.interText}>
         <h2>100 more trials! Almost done!</h2>
-    );
+        <h1>Press the Enter Key to Continue</h1>
+    </div>
+  );
+        
 }

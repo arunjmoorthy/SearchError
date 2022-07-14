@@ -31,6 +31,8 @@ export default function Grid({
   results,
   setResults
 }: GridProps) {
+
+  console.log(trialIndex);
   return (
     <div className={styles.totGrid}>
       <div className={styles.header}>

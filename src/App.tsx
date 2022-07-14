@@ -35,12 +35,12 @@ function shuffle(array: Stimulus[]) {
 function App() {
 
   const [id, setId] = useState<string>('');
-  const [trials, setTrials] = useState<Stimulus[][]>([[]]);
+  const [trials, setTrials] = useState<Stimulus[][]>([]);
   const [trialndex, setTrialIndex] = useState<number>(0);
   const [results, setResults] = useState<number[]>([]);
 
   useEffect(() => {
-    let temp: Stimulus[][] = [[]];
+    let temp: Stimulus[][] = [];
     let stimuli: Stimulus[] = [];
     let stim: Stimulus;
     // target absent trials
@@ -79,6 +79,7 @@ function App() {
     }
     temp = shuffleMatrix(temp);
     setTrials(temp);
+    console.log(temp);
   }, []);
 
   return (
@@ -102,7 +103,7 @@ function App() {
               setResults={setResults}
             />}
           />
-          {/* <Route element={<Conclusion />}></Route> */}
+          <Route path="/conclusion" element={<Conclusion />}></Route>
         </Routes>
       </div>
     </Router>
