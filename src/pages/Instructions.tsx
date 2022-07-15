@@ -4,7 +4,7 @@ import styles from "../styles/Instructions.module.css";
 
 export default function Instructions() {
   const navigate = useNavigate();
-
+  
   return (
     <div className={styles.instruct}>
       <h1>Instructions</h1>
