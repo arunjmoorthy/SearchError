@@ -1,15 +1,15 @@
-.interText{
-    text-align: center;
+.interText {
+  text-align: center;
 }
 
-.interText h2{
-    padding-top: 100px;
-    padding-bottom: 100px;
+.interText h2 {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
-.conc{
-    text-align: center;
-    font-size: 30px;
-    padding-top: 100px;
-    font-weight: bold;
+.conc {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 100px;
+  font-weight: bold;
 }

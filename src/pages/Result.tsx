@@ -17,7 +17,7 @@ const Result = ({ setInterVisible, success }: ResultProps) => {
 
   return (
     <div className={styles.res}>
-      {(success) ? (
+      {success ? (
         <h2>Congrats! You got this trial correct!</h2>
       ) : (
         <h2>Sorry! You missed this trial!</h2>

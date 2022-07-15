@@ -33,14 +33,17 @@ export default function Grid({
   results,
   setResults,
   intermediate,
-  setIntermediate
+  setIntermediate,
 }: GridProps) {
-
   console.log(trialIndex);
   return (
     <div className={styles.totGrid}>
       <div className={styles.header}>
-        {intermediate ? <h1>Trial {trialIndex+101}</h1> : <h1>Trial {trialIndex+1}</h1>} 
+        {intermediate ? (
+          <h1>Trial {trialIndex + 101}</h1>
+        ) : (
+          <h1>Trial {trialIndex + 1}</h1>
+        )}
       </div>
       <div className={styles.table} style={{ display: "table" }}>
         <Row

@@ -18,13 +18,12 @@ export default function Intermediate({
   setIntermediate,
   trialIndex,
   intermediate,
-  trials
+  trials,
 }: IntermediateProps) {
-
-  function reverseTrials(arr: Stimulus[][]){
+  function reverseTrials(arr: Stimulus[][]) {
     let start = 0;
-    let fin = arr.length-1;
-    while(start <= fin){
+    let fin = arr.length - 1;
+    while (start <= fin) {
       let temp: Stimulus[] = arr[start];
       arr[start] = arr[fin];
       arr[fin] = temp;
@@ -53,17 +52,16 @@ export default function Intermediate({
 
   return (
     <div className={styles.interText}>
-      {(!intermediate) ?
+      {!intermediate ? (
         <div>
           <h2>100 more trials! Almost done!</h2>
           <h1>Press the Enter Key to Continue</h1>
-        </div> :
-        <div className={styles.conc}>
-            <p>Thank you so much for doing this experiment!</p>
         </div>
-
-      }
+      ) : (
+        <div className={styles.conc}>
+          <p>Thank you so much for doing this experiment!</p>
+        </div>
+      )}
     </div>
   );
-
 }

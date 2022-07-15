@@ -1,18 +1,18 @@
-body{
-    background-color: lightblue;
-    height: 100vh;
-    width: 100vw;
+body {
+  background-color: lightblue;
+  height: 100vh;
+  width: 100vw;
 }
 
 .writing {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 .instruct h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .startExp {
-    margin-top: 2rem;
-    text-align: center;
+  margin-top: 2rem;
+  text-align: center;
 }

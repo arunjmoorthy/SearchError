@@ -34,7 +34,7 @@ export default function Row({
   results,
   setResults,
   intermediate,
-  setIntermediate
+  setIntermediate,
 }: RowProps) {
   const [images, setImages] = useState<Stimulus[]>([]);
 
@@ -61,7 +61,7 @@ export default function Row({
   // handler for keypress
   // identify if press is a space -> switch the boolean state
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key == ' ') {
+    if (event.key == " ") {
       if (trial[1].category === 0) {
         setSuccess(true);
         let arr: number[] = results;

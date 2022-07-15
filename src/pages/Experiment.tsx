@@ -33,8 +33,6 @@ const Experiment = ({
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
 
-  
-
   const handleButtonClick = () => {
     setInterVisible(true);
   };
@@ -44,16 +42,16 @@ const Experiment = ({
   return (
     <div className={styles.exp}>
       <div>
-        {(trialIndex === 100) ? (
-            <div>
-                <Intermediate
-                    intermediate={intermediate}
-                    setTrialIndex={setTrialIndex}
-                    trialIndex={trialIndex}
-                    setIntermediate={setIntermediate}
-                    trials={trials}
-                />
-            </div>
+        {trialIndex === 100 ? (
+          <div>
+            <Intermediate
+              intermediate={intermediate}
+              setTrialIndex={setTrialIndex}
+              trialIndex={trialIndex}
+              setIntermediate={setIntermediate}
+              trials={trials}
+            />
+          </div>
         ) : (
           <div>
             {interVisible ? (
