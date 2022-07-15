@@ -44,8 +44,6 @@ export default function Row({
     if (trialIndex === 100 && intermediate === true) {
       navigate("/conclusion");
     } else {
-      // if trial index === 1 and you've seen the intermediate
-      // -> router.push
       setTrialIndex(trialIndex + 1);
       setSuccess(true);
       setInterVisible(true);
@@ -63,20 +61,13 @@ export default function Row({
   // handler for keypress
   // identify if press is a space -> switch the boolean state
   const handleKeyDown = (event: KeyboardEvent) => {
-
     if (event.key == ' ') {
-
-      if (trialIndex === 100 && intermediate) {
-        navigate("/conclusion");
-        return;
-      }
-
-      if (intermediate && trial[1].category === 0) {
+      if (trial[1].category === 0) {
         setSuccess(true);
         let arr: number[] = results;
         arr.push(1);
         setResults(arr);
-      } else if (intermediate && trial[1].category === 1) {
+      } else if (trial[1].category === 1) {
         let arr: number[] = results;
         arr.push(0);
         setResults(arr);

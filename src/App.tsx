@@ -6,7 +6,6 @@ import Instructions from './pages/Instructions';
 import Experiment from './pages/Experiment';
 import { Console } from 'console';
 import { Stimulus } from './interfaces/Stimulus';
-import Conclusion from './pages/Conclusion';
 import Intermediate from './pages/Intermediate';
 
 //shuffle 2D array
@@ -103,7 +102,6 @@ function App() {
               setResults={setResults}
             />}
           />
-          <Route path="/conclusion" element={<Conclusion />}></Route>
         </Routes>
       </div>
     </Router>

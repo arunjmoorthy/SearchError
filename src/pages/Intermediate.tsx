@@ -3,12 +3,14 @@ import { useEffect } from "react";
 import { BooleanLiteral } from "typescript";
 import { SetStateAction, Dispatch } from "react";
 import styles from "../styles/Intermediate.module.css";
+import { Stimulus } from "../interfaces/Stimulus";
 
 interface IntermediateProps {
   trialIndex: number;
   intermediate: boolean;
   setTrialIndex: Dispatch<SetStateAction<number>>;
   setIntermediate: Dispatch<SetStateAction<boolean>>;
+  trials: Stimulus[][];
 }
 
 export default function Intermediate({
@@ -16,12 +18,28 @@ export default function Intermediate({
   setIntermediate,
   trialIndex,
   intermediate,
+  trials
 }: IntermediateProps) {
+
+  function reverseTrials(arr: Stimulus[][]){
+    let start = 0;
+    let fin = arr.length-1;
+    while(start <= fin){
+      let temp: Stimulus[] = arr[start];
+      arr[start] = arr[fin];
+      arr[fin] = temp;
+
+      start++;
+      fin--;
+    }
+    return arr;
+  }
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       setTrialIndex(0);
       setIntermediate(true);
+      reverseTrials(trials);
     }
   };
 
@@ -40,7 +58,9 @@ export default function Intermediate({
           <h2>100 more trials! Almost done!</h2>
           <h1>Press the Enter Key to Continue</h1>
         </div> :
-        <p>Thank you so much for doing this experiment. We will pay you the rate mentioned before shortly. Thank you!</p>
+        <div className={styles.conc}>
+            <p>Thank you so much for doing this experiment!</p>
+        </div>
 
       }
     </div>

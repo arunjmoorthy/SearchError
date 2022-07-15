@@ -40,7 +40,7 @@ export default function Grid({
   return (
     <div className={styles.totGrid}>
       <div className={styles.header}>
-        <h1>Trial {trialIndex+1}</h1>
+        {intermediate ? <h1>Trial {trialIndex+101}</h1> : <h1>Trial {trialIndex+1}</h1>} 
       </div>
       <div className={styles.table} style={{ display: "table" }}>
         <Row
