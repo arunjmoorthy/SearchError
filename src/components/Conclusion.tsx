@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import {Stimulus}  from "../interfaces/Stimulus";
-import {IndTrial}  from "../interfaces/IndTrial";
 
 interface ConclusionProps {
-    indTrials: IndTrial[];
     results: number[];
     id: number;
+    trialArrs: number[][];
+    orientArrs: number[][];
+    type: number[];
 }
 
-const Conclusion = ({ indTrials, results, id }: ConclusionProps) => {
+const Conclusion = ({ type, results, id, orientArrs, trialArrs }: ConclusionProps) => {
 
     const pushData = async () => {
         const request = await fetch(
@@ -20,8 +21,10 @@ const Conclusion = ({ indTrials, results, id }: ConclusionProps) => {
                 },
                 body: JSON.stringify({
                     id: id,
-                    indTrials: indTrials,
-                    results: results
+                    results: results,
+                    type: type,
+                    orientArrs: orientArrs,
+                    trialArrs: trialArrs
                 }),
             });
 

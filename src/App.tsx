@@ -40,6 +40,9 @@ function App() {
   const [trialndex, setTrialIndex] = useState<number>(0);
   const [results, setResults] = useState<number[]>([]);
   const [indTrials, setIndTrials] = useState<IndTrial[]>([]);
+  const [trialArrs, setTrialArrs] = useState<number[][]>([]);
+  const [orientArrs, setOrientArrs] = useState<number[][]>([]);
+  const [type, setType] = useState<number[]>([])
 
   useEffect(() => {
     let temp: Stimulus[][] = [];
@@ -100,18 +103,32 @@ function App() {
       stimuli = [];
     }
     temp = shuffleMatrix(temp);
+    setTrials(temp);
+
+    let tempOrient = [];
+    let tempTrial = [];
+    let tempType = [];
 
     for(let i = 0; i < temp.length; i++){
       let tempStim: Stimulus[] = temp[i];
-      let fin: IndTrial = {
-        comp: tempStim
-      };
-      indTrials.push(fin);
+      let orient: number[] = [];
+      let trl: number[] = [];
+      let typ: number = 0;
+      for(let j = 0; j < tempStim.length; j++){
+        let stimu: Stimulus = tempStim[j];
+        orient.push(stimu.orientation);
+        trl.push(stimu.category);
+        typ = stimu.type;
+      }
+      tempOrient.push(orient);
+      tempTrial.push(trl);
+      tempType.push(typ);
     }
 
-    setTrials(temp);
-    console.log(indTrials);
-  }, []);
+    setOrientArrs(tempOrient);
+    setTrialArrs(tempTrial);
+    setType(tempType);
+}, []);
 
   return (
     <Router>
@@ -130,7 +147,9 @@ function App() {
                 results={results}
                 setResults={setResults}
                 id={id}
-                indTrials={indTrials}
+                trialArrs={trialArrs}
+                orientArrs={orientArrs}
+                type={type}
               />
             }
           />

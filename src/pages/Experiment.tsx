@@ -3,7 +3,6 @@ import Result from "./Result";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Stimulus } from "../interfaces/Stimulus";
-import { IndTrial } from "../interfaces/IndTrial";
 import styles from "../styles/Experiment.module.css";
 import Grid from "../components/Grid";
 import Intermediate from "./Intermediate";
@@ -17,7 +16,9 @@ interface ExperimentProps {
   results: number[];
   setResults: Dispatch<SetStateAction<number[]>>;
   id: number;
-  indTrials: IndTrial[];
+  trialArrs: number[][];
+  orientArrs: number[][];
+  type: number[];
 }
 
 const Experiment = ({
@@ -28,7 +29,9 @@ const Experiment = ({
   results,
   setResults,
   id,
-  indTrials
+  trialArrs,
+  orientArrs,
+  type
 }: ExperimentProps) => {
   //if user response is correct, render success
   //if user response is wrong, render failure
@@ -57,7 +60,9 @@ const Experiment = ({
               trials={trials}
               results={results}
               id={id}
-              indTrials={indTrials}
+              trialArrs={trialArrs}
+              orientArrs={orientArrs}
+              type={type}
             />
           </div>
         ) : (
