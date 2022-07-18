@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import {Stimulus}  from "../interfaces/Stimulus";
+import {IndTrial}  from "../interfaces/IndTrial";
 
 interface ConclusionProps {
-    trials: Stimulus[][];
+    indTrials: IndTrial[];
     results: number[];
     id: number;
 }
 
-const Conclusion = ({ trials, results, id }: ConclusionProps) => {
+const Conclusion = ({ indTrials, results, id }: ConclusionProps) => {
 
     const pushData = async () => {
         const request = await fetch(
@@ -18,9 +19,9 @@ const Conclusion = ({ trials, results, id }: ConclusionProps) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    trials,
-                    results,
-                    id
+                    id: id,
+                    indTrials: indTrials,
+                    results: results
                 }),
             });
 
@@ -29,7 +30,7 @@ const Conclusion = ({ trials, results, id }: ConclusionProps) => {
         if (response.success) {
             console.log("yay");
         } else {
-            alert("fail");
+            console.log(response.message);
         }
     }
 

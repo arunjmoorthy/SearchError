@@ -7,6 +7,7 @@ import Experiment from "./pages/Experiment";
 import { Console } from "console";
 import { Stimulus } from "./interfaces/Stimulus";
 import Intermediate from "./pages/Intermediate";
+import { IndTrial } from "./interfaces/IndTrial";
 
 //shuffle 2D array
 function shuffleMatrix(arr2: Stimulus[][]) {
@@ -38,6 +39,7 @@ function App() {
   const [trials, setTrials] = useState<Stimulus[][]>([]);
   const [trialndex, setTrialIndex] = useState<number>(0);
   const [results, setResults] = useState<number[]>([]);
+  const [indTrials, setIndTrials] = useState<IndTrial[]>([]);
 
   useEffect(() => {
     let temp: Stimulus[][] = [];
@@ -98,8 +100,17 @@ function App() {
       stimuli = [];
     }
     temp = shuffleMatrix(temp);
+
+    for(let i = 0; i < temp.length; i++){
+      let tempStim: Stimulus[] = temp[i];
+      let fin: IndTrial = {
+        comp: tempStim
+      };
+      indTrials.push(fin);
+    }
+
     setTrials(temp);
-    console.log(temp);
+    console.log(indTrials);
   }, []);
 
   return (
@@ -119,6 +130,7 @@ function App() {
                 results={results}
                 setResults={setResults}
                 id={id}
+                indTrials={indTrials}
               />
             }
           />

@@ -4,6 +4,7 @@ import Conclusion from "../components/Conclusion";
 import { SetStateAction, Dispatch } from "react";
 import styles from "../styles/Intermediate.module.css";
 import { Stimulus } from "../interfaces/Stimulus";
+import { IndTrial } from "../interfaces/IndTrial";
 
 interface IntermediateProps {
   trialIndex: number;
@@ -13,6 +14,7 @@ interface IntermediateProps {
   trials: Stimulus[][];
   results: number[];
   id: number;
+  indTrials: IndTrial[];
 }
 
 export default function Intermediate({
@@ -22,7 +24,8 @@ export default function Intermediate({
   intermediate,
   trials,
   results,
-  id
+  id,
+  indTrials
 }: IntermediateProps) {
 
   function reverseTrials(arr: Stimulus[][]) {
@@ -67,7 +70,7 @@ export default function Intermediate({
       ) : (
         <div className={styles.conc}>
           <Conclusion
-            trials={trials}
+            indTrials={indTrials}
             id={id}
             results={results}
           />
