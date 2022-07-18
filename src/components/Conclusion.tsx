@@ -33,6 +33,10 @@ const Conclusion = ({ trials, results, id }: ConclusionProps) => {
         }
     }
 
+    useEffect(() => {
+        pushData();
+    }, [])
+
     return (
         <div>
             <p>Thank you so much for doing this experiment!</p>
