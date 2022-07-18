@@ -11,6 +11,8 @@ interface IntermediateProps {
   setTrialIndex: Dispatch<SetStateAction<number>>;
   setIntermediate: Dispatch<SetStateAction<boolean>>;
   trials: Stimulus[][];
+  results: number[];
+  id: number;
 }
 
 export default function Intermediate({
@@ -19,6 +21,8 @@ export default function Intermediate({
   trialIndex,
   intermediate,
   trials,
+  results,
+  id
 }: IntermediateProps) {
   function reverseTrials(arr: Stimulus[][]) {
     let start = 0;

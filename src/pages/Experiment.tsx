@@ -15,6 +15,7 @@ interface ExperimentProps {
   setTrialIndex: Dispatch<SetStateAction<number>>;
   results: number[];
   setResults: Dispatch<SetStateAction<number[]>>;
+  id: number;
 }
 
 const Experiment = ({
@@ -24,6 +25,7 @@ const Experiment = ({
   setTrialIndex,
   results,
   setResults,
+  id
 }: ExperimentProps) => {
   //if user response is correct, render success
   //if user response is wrong, render failure
@@ -50,6 +52,8 @@ const Experiment = ({
               trialIndex={trialIndex}
               setIntermediate={setIntermediate}
               trials={trials}
+              results={results}
+              id={id}
             />
           </div>
         ) : (

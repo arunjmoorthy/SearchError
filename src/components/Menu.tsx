@@ -4,15 +4,15 @@ import Button from "@mui/material/Button";
 import styles from "../styles/Menu.module.css";
 
 interface MenuProps {
-  id: string;
-  setId: Dispatch<SetStateAction<string>>;
+  id: number;
+  setId: Dispatch<SetStateAction<number>>;
 }
 
 const Menu = ({ setId, id }: MenuProps) => {
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setId(event.target.value);
+    setId(parseFloat(event.target.value));
   };
 
   return (
