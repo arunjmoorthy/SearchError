@@ -1,6 +1,6 @@
 import Experiment from "./Experiment";
 import { useEffect } from "react";
-import { BooleanLiteral } from "typescript";
+import Conclusion from "../components/Conclusion";
 import { SetStateAction, Dispatch } from "react";
 import styles from "../styles/Intermediate.module.css";
 import { Stimulus } from "../interfaces/Stimulus";
@@ -24,6 +24,7 @@ export default function Intermediate({
   results,
   id
 }: IntermediateProps) {
+
   function reverseTrials(arr: Stimulus[][]) {
     let start = 0;
     let fin = arr.length - 1;
@@ -54,6 +55,8 @@ export default function Intermediate({
     };
   });
 
+
+
   return (
     <div className={styles.interText}>
       {!intermediate ? (
@@ -63,7 +66,11 @@ export default function Intermediate({
         </div>
       ) : (
         <div className={styles.conc}>
-          <p>Thank you so much for doing this experiment!</p>
+          <Conclusion
+            trials={trials}
+            id={id}
+            results={results}
+          />
         </div>
       )}
     </div>
