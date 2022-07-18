@@ -39,7 +39,6 @@ function App() {
   const [trials, setTrials] = useState<Stimulus[][]>([]);
   const [trialndex, setTrialIndex] = useState<number>(0);
   const [results, setResults] = useState<number[]>([]);
-  const [indTrials, setIndTrials] = useState<IndTrial[]>([]);
   const [trialArrs, setTrialArrs] = useState<number[][]>([]);
   const [orientArrs, setOrientArrs] = useState<number[][]>([]);
   const [type, setType] = useState<number[]>([])
@@ -128,6 +127,10 @@ function App() {
     setOrientArrs(tempOrient);
     setTrialArrs(tempTrial);
     setType(tempType);
+
+    console.log(tempOrient);
+    console.log(tempTrial);
+    console.log(tempType);
 }, []);
 
   return (

@@ -26,6 +26,7 @@ const Conclusion = ({ type, results, id, orientArrs, trialArrs }: ConclusionProp
                     orientArrs: orientArrs,
                     trialArrs: trialArrs
                 }),
+                
             });
 
         const response = await request.json();
