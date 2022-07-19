@@ -12,7 +12,7 @@ interface ExperimentProps {
   setTrialIndex: Dispatch<SetStateAction<number>>;
   results: number[];
   setResults: Dispatch<SetStateAction<number[]>>;
-  id: number;
+  id: string;
   trialArrs: number[][];
   orientArrs: number[][];
   type: number[];

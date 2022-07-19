@@ -11,7 +11,7 @@ interface IntermediateProps {
   setIntermediate: Dispatch<SetStateAction<boolean>>;
   trials: Stimulus[][];
   results: number[];
-  id: number;
+  id: string;
   trialArrs: number[][];
   orientArrs: number[][];
   type: number[];

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 interface ConclusionProps {
     results: number[];
-    id: number;
+    id: string;
     trialArrs: number[][];
     orientArrs: number[][];
     type: number[];

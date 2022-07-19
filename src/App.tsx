@@ -33,7 +33,7 @@ function shuffle(array: Stimulus[]) {
 }
 
 function App() {
-  const [id, setId] = useState<number>(0);
+  const [id, setId] = useState<string>("");
   const [trials, setTrials] = useState<Stimulus[][]>([]);
   const [trialndex, setTrialIndex] = useState<number>(0);
   const [results, setResults] = useState<number[]>([]);
