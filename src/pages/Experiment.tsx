@@ -31,8 +31,8 @@ const Experiment = ({
 }: ExperimentProps) => {
   //if user response is correct, render success
   //if user response is wrong, render failure
-  let [success, setSuccess] = useState<boolean>(false);
-  let [intermediate, setIntermediate] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
+  const [intermediate, setIntermediate] = useState<boolean>(false);
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
