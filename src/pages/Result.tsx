@@ -11,7 +11,7 @@ const Result = ({ setInterVisible, success }: ResultProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setInterVisible(false);
-    }, 1500);
+    }, 5);
     return () => clearTimeout(timer);
   }, []);
 
