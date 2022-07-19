@@ -11,16 +11,16 @@ const Result = ({ setInterVisible, success }: ResultProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setInterVisible(false);
-    }, 5);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className={styles.res}>
       {success ? (
-        <h2>Congrats! You got this trial correct!</h2>
+        <h1 >Correct</h1>
       ) : (
-        <h2>Sorry! You missed this trial!</h2>
+        <h1>Incorrect</h1>
       )}
     </div>
   );

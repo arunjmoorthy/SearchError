@@ -1,13 +1,11 @@
 import Menu from "./components/Menu";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Instructions from "./pages/Instructions";
 import Experiment from "./pages/Experiment";
-import { Console } from "console";
 import { Stimulus } from "./interfaces/Stimulus";
-import Intermediate from "./pages/Intermediate";
-import { IndTrial } from "./interfaces/IndTrial";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
+
 
 //shuffle 2D array
 function shuffleMatrix(arr2: Stimulus[][]) {
@@ -108,12 +106,12 @@ function App() {
     let tempTrial = [];
     let tempType = [];
 
-    for(let i = 0; i < temp.length; i++){
+    for (let i = 0; i < temp.length; i++) {
       let tempStim: Stimulus[] = temp[i];
       let orient: number[] = [];
       let trl: number[] = [];
       let typ: number = 0;
-      for(let j = 0; j < tempStim.length; j++){
+      for (let j = 0; j < tempStim.length; j++) {
         let stimu: Stimulus = tempStim[j];
         orient.push(stimu.orientation);
         trl.push(stimu.category);
@@ -131,20 +129,19 @@ function App() {
     // console.log(tempOrient);
     // console.log(tempTrial);
     // console.log(tempType);
-}, []);
+  }, []);
 
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Menu setId={setId} id={id} />} />
+          <Route path="/" element={<Menu setId={setId} />} />
           <Route path="/instructions" element={<Instructions />} />
           <Route
             path="/experiment"
             element={
               <Experiment
                 trials={trials}
-                setTrials={setTrials}
                 trialIndex={trialndex}
                 setTrialIndex={setTrialIndex}
                 results={results}

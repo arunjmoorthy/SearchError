@@ -3,24 +3,18 @@ import { useEffect, useState } from "react";
 import blackL from "../assets/blackL.png";
 import blackT from "../assets/blackT.png";
 import { Stimulus } from "../interfaces/Stimulus";
-import styles from "../styles/Row.module.css";
 import { SetStateAction, Dispatch } from "react";
-import { height } from "@mui/system";
-import { touchRippleClasses } from "@mui/material";
-import { start } from "repl";
 
 interface RowProps {
   trial: Stimulus[];
   startIndex: number;
   setTrialIndex: Dispatch<SetStateAction<number>>;
   trialIndex: number;
-  success: boolean;
   setSuccess: Dispatch<SetStateAction<boolean>>;
   setInterVisible: Dispatch<SetStateAction<boolean>>;
   results: number[];
   setResults: Dispatch<SetStateAction<number[]>>;
   intermediate: boolean;
-  setIntermediate: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function Row({
@@ -28,20 +22,18 @@ export default function Row({
   startIndex,
   setTrialIndex,
   trialIndex,
-  success,
   setSuccess,
   setInterVisible,
   results,
   setResults,
   intermediate,
-  setIntermediate,
 }: RowProps) {
   const [images, setImages] = useState<Stimulus[]>([]);
 
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (trialIndex === 100 && intermediate === true) {
+    if (trialIndex === 100 && intermediate) {
       navigate("/conclusion");
     } else {
       setTrialIndex(trialIndex + 1);
@@ -61,18 +53,21 @@ export default function Row({
   // handler for keypress
   // identify if press is a space -> switch the boolean state
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key == " ") {
+    if (event.key === " ") {
       if (trial[1].category === 0) {
-        setSuccess(true);
         let arr: number[] = results;
         arr.push(1);
         setResults(arr);
+
+        setSuccess(true);
       } else if (trial[1].category === 1) {
         let arr: number[] = results;
         arr.push(0);
         setResults(arr);
+
         setSuccess(false);
       }
+
       setTrialIndex(trialIndex + 1);
       setInterVisible(true);
     }

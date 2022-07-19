@@ -1,16 +1,13 @@
 import { SetStateAction, Dispatch } from "react";
 import Result from "./Result";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Stimulus } from "../interfaces/Stimulus";
 import styles from "../styles/Experiment.module.css";
 import Grid from "../components/Grid";
 import Intermediate from "./Intermediate";
-import Button from "@mui/material/Button";
 
 interface ExperimentProps {
   trials: Stimulus[][];
-  setTrials: Dispatch<SetStateAction<Stimulus[][]>>;
   trialIndex: number;
   setTrialIndex: Dispatch<SetStateAction<number>>;
   results: number[];
@@ -23,7 +20,6 @@ interface ExperimentProps {
 
 const Experiment = ({
   trials,
-  setTrials,
   trialIndex,
   setTrialIndex,
   results,
@@ -40,12 +36,6 @@ const Experiment = ({
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
-
-  const handleButtonClick = () => {
-    setInterVisible(true);
-  };
-
-  const navigate = useNavigate();
 
   return (
     <div className={styles.exp}>
@@ -72,7 +62,6 @@ const Experiment = ({
             ) : (
               <Grid
                 trial={trials[trialIndex]}
-                setTrials={setTrials}
                 setTrialIndex={setTrialIndex}
                 trialIndex={trialIndex}
                 success={success}

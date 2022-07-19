@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import {Stimulus}  from "../interfaces/Stimulus";
 
 interface ConclusionProps {
     results: number[];
@@ -29,7 +28,7 @@ const Conclusion = ({ type, results, id, orientArrs, trialArrs }: ConclusionProp
                     trialArrs: trialArrs,
                     results: results
                 }),
-                
+
             });
 
         const response = await request.json();

@@ -1,10 +1,8 @@
-import Experiment from "./Experiment";
 import { useEffect } from "react";
 import Conclusion from "../components/Conclusion";
 import { SetStateAction, Dispatch } from "react";
 import styles from "../styles/Intermediate.module.css";
 import { Stimulus } from "../interfaces/Stimulus";
-import { IndTrial } from "../interfaces/IndTrial";
 
 interface IntermediateProps {
   trialIndex: number;
@@ -22,7 +20,6 @@ interface IntermediateProps {
 export default function Intermediate({
   setTrialIndex,
   setIntermediate,
-  trialIndex,
   intermediate,
   trials,
   results,
