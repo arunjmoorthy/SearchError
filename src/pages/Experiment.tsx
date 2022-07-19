@@ -38,7 +38,7 @@ const Experiment = ({
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
-
+  
   return (
     <div className={styles.exp}>
       <div>
