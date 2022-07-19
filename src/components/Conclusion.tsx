@@ -6,12 +6,12 @@ interface ConclusionProps {
     trialArrs: number[][];
     orientArrs: number[][];
     type: number[];
+    rtArr: number[];
 }
 
-const Conclusion = ({ type, results, id, orientArrs, trialArrs }: ConclusionProps) => {
+const Conclusion = ({ type, results, id, orientArrs, trialArrs, rtArr }: ConclusionProps) => {
 
-    console.log(results);
-    console.log(id);
+    console.log(rtArr);
 
     const pushData = async () => {
         const request = await fetch(
@@ -26,7 +26,8 @@ const Conclusion = ({ type, results, id, orientArrs, trialArrs }: ConclusionProp
                     type: type,
                     orientArrs: orientArrs,
                     trialArrs: trialArrs,
-                    results: results
+                    results: results,
+                    rtArr: rtArr
                 }),
 
             });

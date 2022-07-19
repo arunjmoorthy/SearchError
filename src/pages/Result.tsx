@@ -13,20 +13,17 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr }: Result
 
   // update the display after 2s to redisplay the Ts and Ls
   useEffect(() => {
-    console.log("HI");
     let endTime = new Date();
-    console.log(endTime.getTime());
-    //let rt = (endTime.getTime())-startTime;
+    let rt = (endTime.getTime())-startTime;
     let rts = rtArr;
-    //rts.push(rt);
+    rts.push(rt);
     setrtArr(rts);
 
-    console.log(rts);
     const timer = setTimeout(() => {
       setInterVisible(false);
-    }, 1500);
+    }, 5);
     return () => clearTimeout(timer);
-  });
+  }, []);
 
   return (
     <div className={styles.res}>

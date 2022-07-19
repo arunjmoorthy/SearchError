@@ -55,6 +55,7 @@ const Experiment = ({
               trialArrs={trialArrs}
               orientArrs={orientArrs}
               type={type}
+              rtArr={rtArr}
             />
           </div>
         ) : (

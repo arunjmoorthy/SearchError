@@ -15,6 +15,7 @@ interface IntermediateProps {
   trialArrs: number[][];
   orientArrs: number[][];
   type: number[];
+  rtArr: number[];
 }
 
 export default function Intermediate({
@@ -26,7 +27,8 @@ export default function Intermediate({
   id,
   trialArrs,
   orientArrs,
-  type
+  type,
+  rtArr
 }: IntermediateProps) {
 
   function reverseTrials(arr: Stimulus[][]) {
@@ -74,6 +76,7 @@ export default function Intermediate({
             type={type}
             orientArrs={orientArrs}
             trialArrs={trialArrs}
+            rtArr={rtArr}
           />
         </div>
       )}
