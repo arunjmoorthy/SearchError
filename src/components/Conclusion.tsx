@@ -11,6 +11,9 @@ interface ConclusionProps {
 
 const Conclusion = ({ type, results, id, orientArrs, trialArrs }: ConclusionProps) => {
 
+    console.log(results);
+    console.log(id);
+
     const pushData = async () => {
         const request = await fetch(
             `${process.env.REACT_APP_API_URL}/addTrial`,
@@ -21,10 +24,10 @@ const Conclusion = ({ type, results, id, orientArrs, trialArrs }: ConclusionProp
                 },
                 body: JSON.stringify({
                     id: id,
-                    results: results,
                     type: type,
                     orientArrs: orientArrs,
-                    trialArrs: trialArrs
+                    trialArrs: trialArrs,
+                    results: results
                 }),
                 
             });

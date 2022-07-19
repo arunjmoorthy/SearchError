@@ -41,7 +41,7 @@ function App() {
   const [results, setResults] = useState<number[]>([]);
   const [trialArrs, setTrialArrs] = useState<number[][]>([]);
   const [orientArrs, setOrientArrs] = useState<number[][]>([]);
-  const [type, setType] = useState<number[]>([])
+  const [type, setType] = useState<number[]>([]);
 
   useEffect(() => {
     let temp: Stimulus[][] = [];
@@ -128,9 +128,9 @@ function App() {
     setTrialArrs(tempTrial);
     setType(tempType);
 
-    console.log(tempOrient);
-    console.log(tempTrial);
-    console.log(tempType);
+    // console.log(tempOrient);
+    // console.log(tempTrial);
+    // console.log(tempType);
 }, []);
 
   return (

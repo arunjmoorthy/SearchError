@@ -62,8 +62,6 @@ export default function Intermediate({
     };
   });
 
-
-
   return (
     <div className={styles.interText}>
       {!intermediate ? (
