@@ -38,12 +38,13 @@ const Experiment = ({
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
-  
+
   return (
     <div className={styles.exp}>
       <div>
         {trialIndex === 100 ? (
           <div>
+            <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} />
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
