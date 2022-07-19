@@ -1,6 +1,6 @@
 import { Stimulus } from "../interfaces/Stimulus";
 import styles from "../styles/Grid.module.css";
-import { SetStateAction, Dispatch } from "react";
+import { SetStateAction, Dispatch, useEffect } from "react";
 import Row from "./Row";
 
 interface GridProps {
@@ -14,6 +14,7 @@ interface GridProps {
   setResults: Dispatch<SetStateAction<number[]>>;
   intermediate: boolean;
   setIntermediate: Dispatch<SetStateAction<boolean>>;
+  setStartTime: Dispatch<SetStateAction<number>>;
 }
 
 export default function Grid({
@@ -27,7 +28,13 @@ export default function Grid({
   setResults,
   intermediate,
   setIntermediate,
+  setStartTime
 }: GridProps) {
+
+  useEffect(() => {
+    let start = new Date();
+    setStartTime(start.getTime());
+  }, []);
 
   return (
     <div className={styles.totGrid}>

@@ -33,6 +33,8 @@ const Experiment = ({
   //if user response is wrong, render failure
   const [success, setSuccess] = useState<boolean>(false);
   const [intermediate, setIntermediate] = useState<boolean>(false);
+  const [startTime, setStartTime] = useState<number>(0);
+  const [rtArr, setrtArr] = useState<number[]>([]);
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
@@ -58,7 +60,7 @@ const Experiment = ({
         ) : (
           <div>
             {interVisible ? (
-              <Result setInterVisible={setInterVisible} success={success} />
+              <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} />
             ) : (
               <Grid
                 trial={trials[trialIndex]}
@@ -71,6 +73,7 @@ const Experiment = ({
                 setResults={setResults}
                 intermediate={intermediate}
                 setIntermediate={setIntermediate}
+                setStartTime={setStartTime}
               />
             )}
           </div>
