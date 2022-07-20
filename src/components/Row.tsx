@@ -33,6 +33,11 @@ export default function Row({
   const navigate = useNavigate();
 
   const handleClick = () => {
+
+    let arr: number[] = results;
+    arr.push(1);
+    setResults(arr);
+
     if (trialIndex === 100 && intermediate) {
       navigate("/conclusion");
     } else {
