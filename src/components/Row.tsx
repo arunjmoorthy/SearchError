@@ -69,7 +69,6 @@ export default function Row({
         let arr: number[] = results;
         arr.push(0);
         setResults(arr);
-
         setSuccess(false);
       }
 
