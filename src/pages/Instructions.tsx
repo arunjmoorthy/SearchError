@@ -23,6 +23,9 @@ export default function Instructions() {
         <p>
           Perform the task for each image as quickly and accurately as possible.
         </p>
+        <p>
+          You must get 75% or more of the trials correct in order to be paid for the task.
+        </p>
       </div>
       <div>
         <div className={styles.header}>

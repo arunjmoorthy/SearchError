@@ -21,7 +21,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr }: Result
 
     const timer = setTimeout(() => {
       setInterVisible(false);
-    }, 1000);
+    }, 5);
     return () => clearTimeout(timer);
   }, []);
 
