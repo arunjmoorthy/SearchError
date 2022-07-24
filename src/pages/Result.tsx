@@ -17,21 +17,22 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
 
   let [responseVal, setResponseVal] = useState<String>("");
   let [targetLoc, setTargetLoc] = useState<number>(999);
-  let [first, setFirst] = useState<String>("");
   let [trialType, setTrialType] = useState<number>(0);
   let [RT, setRT] = useState<number>(0);
+  let reactionTime = 0;
+  let first = "";
 
   const pushData = async () => {
 
     if(trialIndex < 100){
       setTargetLoc(targetLocArr[trialIndex]);
-      setFirst("first");
+      first = "first";
       setTrialType(type[trialIndex]);
       //setRT()
     }
     else{
       setTargetLoc(targetLocArr[99-trialIndex]);
-      setFirst("second");
+      first = "second";
       setTrialType(type[99-trialIndex]);
     }
 
@@ -56,7 +57,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
                 trialType: trialType,
                 targetLoc: targetLoc,
                 responseVal: responseVal,
-                RT: RT
+                reactionTime: reactionTime
             }),
 
         });
@@ -73,11 +74,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   // update the display after 2s to redisplay the Ts and Ls
   useEffect(() => {
     let endTime = new Date();
-    let rt = (endTime.getTime())-startTime;
-    setRT(rt);
-    let rts = rtArr;
-    rts.push(rt);
-    setrtArr(rts);
+    reactionTime = (endTime.getTime())-startTime;
 
     console.log(id);
     console.log(trialIndex);
@@ -85,9 +82,10 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
     console.log(trialType);
     console.log(targetLoc);
     console.log(responseVal);
-    console.log(RT);
+    console.log(reactionTime);
 
     pushData();
+    reactionTime=0;
     const timer = setTimeout(() => {
       setInterVisible(false);
     }, 1000);
