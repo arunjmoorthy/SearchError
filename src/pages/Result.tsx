@@ -79,6 +79,14 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
     rts.push(rt);
     setrtArr(rts);
 
+    console.log(id);
+    console.log(trialIndex);
+    console.log(first);
+    console.log(trialType);
+    console.log(targetLoc);
+    console.log(responseVal);
+    console.log(RT);
+
     pushData();
     const timer = setTimeout(() => {
       setInterVisible(false);
