@@ -16,6 +16,7 @@ interface ExperimentProps {
   trialArrs: number[][];
   orientArrs: number[][];
   type: number[];
+  targetLocArr: number[];
 }
 
 const Experiment = ({
@@ -27,7 +28,8 @@ const Experiment = ({
   id,
   trialArrs,
   orientArrs,
-  type
+  type,
+  targetLocArr
 }: ExperimentProps) => {
   //if user response is correct, render success
   //if user response is wrong, render failure
@@ -44,7 +46,8 @@ const Experiment = ({
       <div>
         {trialIndex === 100 ? (
           <div>
-            <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} />
+            <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
+            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} />
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
@@ -57,12 +60,15 @@ const Experiment = ({
               orientArrs={orientArrs}
               type={type}
               rtArr={rtArr}
+              targetLocArr={targetLocArr}
+              success={success}
             />
           </div>
         ) : (
           <div>
             {interVisible ? (
-              <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} />
+              <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
+              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} />
             ) : (
               <Grid
                 trial={trials[trialIndex]}

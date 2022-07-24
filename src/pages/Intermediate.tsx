@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Conclusion from "../components/Conclusion";
 import { SetStateAction, Dispatch } from "react";
 import styles from "../styles/Intermediate.module.css";
@@ -16,6 +16,8 @@ interface IntermediateProps {
   orientArrs: number[][];
   type: number[];
   rtArr: number[];
+  targetLocArr: number[];
+  success: boolean;
 }
 
 export default function Intermediate({
@@ -28,8 +30,13 @@ export default function Intermediate({
   trialArrs,
   orientArrs,
   type,
-  rtArr
+  rtArr,
+  trialIndex,
+  targetLocArr,
+  success
 }: IntermediateProps) {
+  
+  let [rt, setRT] = useState<number>(0);
 
   function reverseTrials(arr: Stimulus[][]) {
     let start = 0;
@@ -55,6 +62,7 @@ export default function Intermediate({
 
   // add the event listener (for key presses)
   useEffect(() => {
+    //pushData();
     window.addEventListener("keyup", handleKeyDown);
     return () => {
       window.removeEventListener("keyup", handleKeyDown);

@@ -11,8 +11,6 @@ interface ConclusionProps {
 
 const Conclusion = ({ type, results, id, orientArrs, trialArrs, rtArr }: ConclusionProps) => {
 
-    console.log(rtArr);
-
     const pushData = async () => {
         const request = await fetch(
             `${process.env.REACT_APP_API_URL}/addTrial`,

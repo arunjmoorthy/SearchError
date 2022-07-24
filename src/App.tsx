@@ -40,6 +40,7 @@ function App() {
   const [trialArrs, setTrialArrs] = useState<number[][]>([]);
   const [orientArrs, setOrientArrs] = useState<number[][]>([]);
   const [type, setType] = useState<number[]>([]);
+  const [targetLocArr, setTargetLocArr] = useState<number[]>([]);
 
   useEffect(() => {
     let temp: Stimulus[][] = [];
@@ -105,23 +106,34 @@ function App() {
     let tempOrient = [];
     let tempTrial = [];
     let tempType = [];
+    let tempTargLoc = [];
 
     for (let i = 0; i < temp.length; i++) {
       let tempStim: Stimulus[] = temp[i];
       let orient: number[] = [];
       let trl: number[] = [];
       let typ: number = 0;
+      let hasT: boolean = false;
+
       for (let j = 0; j < tempStim.length; j++) {
         let stimu: Stimulus = tempStim[j];
         orient.push(stimu.orientation);
         trl.push(stimu.category);
         typ = stimu.type;
+        if(typ === 2){
+          tempTargLoc.push(j);
+          hasT = true;
+        }
+      }
+      if(!hasT){
+        tempTargLoc.push(999);
       }
       tempOrient.push(orient);
       tempTrial.push(trl);
       tempType.push(typ);
     }
 
+    setTargetLocArr(tempTargLoc);
     setOrientArrs(tempOrient);
     setTrialArrs(tempTrial);
     setType(tempType);
@@ -150,6 +162,7 @@ function App() {
                 trialArrs={trialArrs}
                 orientArrs={orientArrs}
                 type={type}
+                targetLocArr={targetLocArr}
               />
             }
           />

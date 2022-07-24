@@ -1,6 +1,6 @@
 import { Stimulus } from "../interfaces/Stimulus";
 import styles from "../styles/Grid.module.css";
-import { SetStateAction, Dispatch, useEffect } from "react";
+import { SetStateAction, Dispatch, useEffect, useState } from "react";
 import Row from "./Row";
 
 interface GridProps {
@@ -30,6 +30,9 @@ export default function Grid({
   setIntermediate,
   setStartTime
 }: GridProps) {
+
+  let [setSize, SetSetSize] = useState<number>(25);
+  let [first, setFirst] = useState<String>("");
 
   useEffect(() => {
     let start = new Date();
