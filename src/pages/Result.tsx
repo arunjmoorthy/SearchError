@@ -33,12 +33,13 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
       setTrialType(type[99-trialIndex]);
     }
 
-    // if(success){
-    //   setResponseVal("correct");
-    // }
-    // else{
-    //   setResponseVal("incorrect");
-    // }
+    console.log(id);
+    console.log(trialIndex);
+    console.log(first);
+    console.log(trialType);
+    console.log(targetLoc);
+    console.log(responseVal);
+    console.log(reactionTime);
 
     const request = await fetch(
         `${process.env.REACT_APP_API_URL}/addTrial`,
@@ -72,14 +73,6 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   useEffect(() => {
     let endTime = new Date();
     reactionTime = (endTime.getTime())-startTime;
-
-    console.log(id);
-    console.log(trialIndex);
-    console.log(first);
-    console.log(trialType);
-    console.log(targetLoc);
-    console.log(responseVal);
-    console.log(reactionTime);
 
     pushData();
     reactionTime=0;
