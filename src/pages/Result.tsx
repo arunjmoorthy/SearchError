@@ -74,14 +74,17 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   useEffect(() => {
     let endTime = new Date();
     let rt = (endTime.getTime())-startTime;
+    setRT(rt);
     let rts = rtArr;
     rts.push(rt);
     setrtArr(rts);
 
+    pushData();
     const timer = setTimeout(() => {
       setInterVisible(false);
     }, 1000);
     return () => clearTimeout(timer);
+    
   }, []);
 
   return (
