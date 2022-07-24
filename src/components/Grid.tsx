@@ -15,6 +15,7 @@ interface GridProps {
   intermediate: boolean;
   setIntermediate: Dispatch<SetStateAction<boolean>>;
   setStartTime: Dispatch<SetStateAction<number>>;
+  setResponseVal: Dispatch<SetStateAction<string>>;
 }
 
 export default function Grid({
@@ -28,7 +29,8 @@ export default function Grid({
   setResults,
   intermediate,
   setIntermediate,
-  setStartTime
+  setStartTime,
+  setResponseVal
 }: GridProps) {
 
   let [setSize, SetSetSize] = useState<number>(25);
@@ -59,6 +61,7 @@ export default function Grid({
           setResults={setResults}
           results={results}
           intermediate={intermediate}
+          setResponseVal={setResponseVal}
         />
         <Row
           trial={trial}
@@ -70,6 +73,7 @@ export default function Grid({
           setResults={setResults}
           results={results}
           intermediate={intermediate}
+          setResponseVal={setResponseVal}
         />
         <Row
           trial={trial}
@@ -81,6 +85,7 @@ export default function Grid({
           setResults={setResults}
           results={results}
           intermediate={intermediate}
+          setResponseVal={setResponseVal}
         />
         <Row
           trial={trial}
@@ -92,6 +97,7 @@ export default function Grid({
           setResults={setResults}
           results={results}
           intermediate={intermediate}
+          setResponseVal={setResponseVal}
         />
         <Row
           trial={trial}
@@ -103,6 +109,7 @@ export default function Grid({
           setResults={setResults}
           results={results}
           intermediate={intermediate}
+          setResponseVal={setResponseVal}
         />
         <Row
           trial={trial}
@@ -114,6 +121,7 @@ export default function Grid({
           setResults={setResults}
           results={results}
           intermediate={intermediate}
+          setResponseVal={setResponseVal}
         />
         <Row
           trial={trial}
@@ -125,6 +133,7 @@ export default function Grid({
           setResults={setResults}
           results={results}
           intermediate={intermediate}
+          setResponseVal={setResponseVal}
         />
       </div>
     </div>

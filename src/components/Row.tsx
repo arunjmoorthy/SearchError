@@ -15,6 +15,7 @@ interface RowProps {
   results: number[];
   setResults: Dispatch<SetStateAction<number[]>>;
   intermediate: boolean;
+  setResponseVal: Dispatch<SetStateAction<string>>;
 }
 
 export default function Row({
@@ -27,6 +28,7 @@ export default function Row({
   results,
   setResults,
   intermediate,
+  setResponseVal
 }: RowProps) {
   const [images, setImages] = useState<Stimulus[]>([]);
 
@@ -37,6 +39,7 @@ export default function Row({
     let arr: number[] = results;
     arr.push(1);
     setResults(arr);
+    setResponseVal("correct");
 
     if (trialIndex === 100 && intermediate) {
       navigate("/conclusion");
@@ -65,11 +68,13 @@ export default function Row({
         setResults(arr);
 
         setSuccess(true);
+        setResponseVal("correct");
       } else if (trial[1].category === 1) {
         let arr: number[] = results;
         arr.push(0);
         setResults(arr);
         setSuccess(false);
+        setResponseVal("incorrect");
       }
 
       setTrialIndex(trialIndex + 1);

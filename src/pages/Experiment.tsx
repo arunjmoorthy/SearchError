@@ -40,7 +40,7 @@ const Experiment = ({
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
-  let [responseVal, setResponseVal] = useState<string>("");
+  let [responseVal, setResponseVal] = useState<string>("incorrect");
   let [first, setFirst] = useState<string>("");
 
   useEffect(() => {
@@ -93,6 +93,7 @@ const Experiment = ({
                 intermediate={intermediate}
                 setIntermediate={setIntermediate}
                 setStartTime={setStartTime}
+                setResponseVal={setResponseVal}
               />
             )}
           </div>
