@@ -14,25 +14,25 @@ interface ResultProps {
 }
 
 const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr }: ResultProps) => {
-
-  let [responseVal, setResponseVal] = useState<String>("");
+  const [responseVal, setResponseVal] = useState<String>('');
+  const [first, setFirst] = useState<String>('');
   let [targetLoc, setTargetLoc] = useState<number>(999);
   let [trialType, setTrialType] = useState<number>(0);
   let [RT, setRT] = useState<number>(0);
   let reactionTime = 0;
-  let first = "";
+  let correct = "correct";
+  let wrong = "incorrect";
 
   const pushData = async () => {
 
     if(trialIndex < 100){
       setTargetLoc(targetLocArr[trialIndex]);
-      first = "first";
+      setFirst("first");
       setTrialType(type[trialIndex]);
-      //setRT()
     }
     else{
       setTargetLoc(targetLocArr[99-trialIndex]);
-      first = "second";
+      setFirst("second");
       setTrialType(type[99-trialIndex]);
     }
 
