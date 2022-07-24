@@ -14,8 +14,8 @@ interface ResultProps {
 }
 
 const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr }: ResultProps) => {
-  const [responseVal, setResponseVal] = useState<String>('');
-  const [first, setFirst] = useState<String>('');
+  let [responseVal, setResponseVal] = useState<string>("");
+  let [first, setFirst] = useState<string>("");
   let [targetLoc, setTargetLoc] = useState<number>(999);
   let [trialType, setTrialType] = useState<number>(0);
   let [RT, setRT] = useState<number>(0);
