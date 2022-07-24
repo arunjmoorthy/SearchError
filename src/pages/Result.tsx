@@ -11,37 +11,34 @@ interface ResultProps {
   trialIndex: number;
   type: number[];
   targetLocArr: number[];
+  first: String;
+  responseVal: String;
 }
 
-const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr }: ResultProps) => {
-  let [responseVal, setResponseVal] = useState<string>("");
-  let [first, setFirst] = useState<string>("");
+const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr, first, responseVal }: ResultProps) => {
+  
   let [targetLoc, setTargetLoc] = useState<number>(999);
   let [trialType, setTrialType] = useState<number>(0);
   let [RT, setRT] = useState<number>(0);
   let reactionTime = 0;
-  let correct = "correct";
-  let wrong = "incorrect";
 
   const pushData = async () => {
 
     if(trialIndex < 100){
       setTargetLoc(targetLocArr[trialIndex]);
-      setFirst("first");
       setTrialType(type[trialIndex]);
     }
     else{
       setTargetLoc(targetLocArr[99-trialIndex]);
-      setFirst("second");
       setTrialType(type[99-trialIndex]);
     }
 
-    if(success){
-      setResponseVal("correct");
-    }
-    else{
-      setResponseVal("incorrect");
-    }
+    // if(success){
+    //   setResponseVal("correct");
+    // }
+    // else{
+    //   setResponseVal("incorrect");
+    // }
 
     const request = await fetch(
         `${process.env.REACT_APP_API_URL}/addTrial`,

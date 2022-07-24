@@ -1,4 +1,4 @@
-import { SetStateAction, Dispatch } from "react";
+import { SetStateAction, Dispatch, useEffect } from "react";
 import Result from "./Result";
 import { useState } from "react";
 import { Stimulus } from "../interfaces/Stimulus";
@@ -40,6 +40,17 @@ const Experiment = ({
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
+  let [responseVal, setResponseVal] = useState<string>("");
+  let [first, setFirst] = useState<string>("");
+
+  useEffect(() => {
+    if(trialIndex < 100){
+      setFirst("first");
+    } else{
+      setFirst("second");
+    }
+  }, []);
+    
 
   return (
     <div className={styles.exp}>
@@ -47,7 +58,7 @@ const Experiment = ({
         {trialIndex === 100 ? (
           <div>
             <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} />
+            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal} />
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
@@ -68,7 +79,7 @@ const Experiment = ({
           <div>
             {interVisible ? (
               <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} />
+              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal} />
             ) : (
               <Grid
                 trial={trials[trialIndex]}
