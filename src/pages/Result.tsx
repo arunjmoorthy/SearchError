@@ -69,8 +69,8 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
       // console.log(trialType)
     } else{
       first = "second";
-      targetLoc = (targetLocArr[99-trialIndex]);
-      trialType = (type[99-trialIndex]);
+      targetLoc = (targetLocArr[100-trialIndex]);
+      trialType = (type[100-trialIndex]);
     }
 
     pushData();
