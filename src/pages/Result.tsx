@@ -24,13 +24,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   let first = "first";
 
   const pushData = async () => {
-    console.log(id);
-    console.log(trialIndex);
-    console.log(first);
-    console.log(trialType);
-    console.log(targetLoc);
-    console.log(responseVal);
-    console.log(reactionTime);
+    console.log("success");
 
     const request = await fetch(
         `${process.env.REACT_APP_API_URL}/addTrial`,
