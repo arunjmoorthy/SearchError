@@ -37,6 +37,8 @@ const Experiment = ({
   const [intermediate, setIntermediate] = useState<boolean>(false);
   const [startTime, setStartTime] = useState<number>(0);
   const [rtArr, setrtArr] = useState<number[]>([]);
+  let [targetLoc, setTargetLoc] = useState<number>(999);
+  let [trialType, setTrialType] = useState<number>(0);
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
@@ -46,8 +48,12 @@ const Experiment = ({
   useEffect(() => {
     if(trialIndex < 100){
       setFirst("first");
+      setTargetLoc(targetLocArr[trialIndex]);
+      setTrialType(type[trialIndex]);
     } else{
       setFirst("second");
+      setTargetLoc(targetLocArr[99-trialIndex]);
+      setTrialType(type[99-trialIndex]);
     }
   }, []);
     
@@ -58,7 +64,8 @@ const Experiment = ({
         {trialIndex === 100 ? (
           <div>
             <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal} />
+            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal}
+            trialType={trialType} targetLoc={targetLoc} />
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
@@ -79,7 +86,8 @@ const Experiment = ({
           <div>
             {interVisible ? (
               <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal} />
+              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal} 
+              trialType={trialType} targetLoc={targetLoc} />
             ) : (
               <Grid
                 trial={trials[trialIndex]}

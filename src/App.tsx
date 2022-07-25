@@ -123,14 +123,16 @@ function App() {
         if(typ === 2){
           tempTargLoc.push(j);
           hasT = true;
+          tempType.push(1);
         }
       }
       if(!hasT){
         tempTargLoc.push(999);
+        tempType.push(0);
       }
       tempOrient.push(orient);
       tempTrial.push(trl);
-      tempType.push(typ);
+      
     }
 
     setTargetLocArr(tempTargLoc);
@@ -140,7 +142,7 @@ function App() {
 
     // console.log(tempOrient);
     // console.log(tempTrial);
-    // console.log(tempType);
+    console.log(tempType);
   }, []);
 
   return (
