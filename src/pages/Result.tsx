@@ -33,13 +33,13 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                id: id,
-                trialIndex: trialIndex,
-                first: first,
-                trialType: trialType,
-                targetLoc: targetLoc,
-                responseVal: responseVal,
-                reactionTime: reactionTime
+                id,
+                trialIndex,
+                first,
+                trialType,
+                targetLoc,
+                responseVal,
+                reactionTime
             }),
 
         });
