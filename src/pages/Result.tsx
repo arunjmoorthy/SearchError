@@ -11,17 +11,16 @@ interface ResultProps {
   trialIndex: number;
   type: number[];
   targetLocArr: number[];
-  first: String;
   responseVal: String;
-  trialType: number;
-  targetLoc: number;
 }
 
-const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr, first, responseVal, 
-  trialType, targetLoc }: ResultProps) => {
+const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr, responseVal }: ResultProps) => {
   
   let [RT, setRT] = useState<number>(0);
   let reactionTime = 0;
+  let targetLoc = 999;
+  let trialType = 0; //0 is absent trial and 1 is target-present trial
+  let first = "first";
 
   const pushData = async () => {
     console.log(id);
@@ -31,7 +30,6 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
     console.log(targetLoc);
     console.log(responseVal);
     console.log(reactionTime);
-    //console.log(type);
 
     const request = await fetch(
         `${process.env.REACT_APP_API_URL}/addTrial`,
@@ -65,6 +63,20 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   useEffect(() => {
     let endTime = new Date();
     reactionTime = (endTime.getTime())-startTime;
+
+    if(trialIndex < 100){
+      // console.log("<100");
+      // console.log(trialIndex);
+      // console.log(type);
+      first = "first";
+      targetLoc = (targetLocArr[trialIndex-1]);
+      trialType = (type[trialIndex-1]);
+      // console.log(trialType)
+    } else{
+      first = "second";
+      targetLoc = (targetLocArr[100-trialIndex]);
+      trialType = (type[100-trialIndex]);
+    }
 
     pushData();
     reactionTime=0;

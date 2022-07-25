@@ -37,35 +37,20 @@ const Experiment = ({
   const [intermediate, setIntermediate] = useState<boolean>(false);
   const [startTime, setStartTime] = useState<number>(0);
   const [rtArr, setrtArr] = useState<number[]>([]);
-  let [targetLoc, setTargetLoc] = useState<number>(999);
-  let [trialType, setTrialType] = useState<number>(0);
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
   let [responseVal, setResponseVal] = useState<string>("incorrect");
-  let [first, setFirst] = useState<string>("");
 
-  useEffect(() => {
-    if(trialIndex < 100){
-      setFirst("first");
-      setTargetLoc(targetLocArr[trialIndex]);
-      setTrialType(type[trialIndex]);
-    } else{
-      setFirst("second");
-      setTargetLoc(targetLocArr[99-trialIndex]);
-      setTrialType(type[99-trialIndex]);
-    }
-  }, []);
-    
-
+  //console.log(type);
+  
   return (
     <div className={styles.exp}>
       <div>
         {trialIndex === 100 ? (
           <div>
             <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal}
-            trialType={trialType} targetLoc={targetLoc} />
+            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} />
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
@@ -86,8 +71,7 @@ const Experiment = ({
           <div>
             {interVisible ? (
               <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} first={first} responseVal={responseVal} 
-              trialType={trialType} targetLoc={targetLoc} />
+              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal}  />
             ) : (
               <Grid
                 trial={trials[trialIndex]}

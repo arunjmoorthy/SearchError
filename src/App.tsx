@@ -142,7 +142,7 @@ function App() {
 
     // console.log(tempOrient);
     // console.log(tempTrial);
-    console.log(tempType);
+    //console.log(tempType);
   }, []);
 
   return (
