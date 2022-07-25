@@ -13,9 +13,11 @@ interface ResultProps {
   targetLocArr: number[];
   responseVal: String;
   intermediate: boolean
+  responseType: string;
 }
 
-const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr, responseVal, intermediate }: ResultProps) => {
+const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, 
+  targetLocArr, responseVal, intermediate, responseType }: ResultProps) => {
   
   let [RT, setRT] = useState<number>(0);
   let reactionTime = 0;
@@ -39,7 +41,8 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
                 trialType,
                 targetLoc,
                 responseVal,
-                reactionTime
+                reactionTime,
+                responseType
             }),
 
         });

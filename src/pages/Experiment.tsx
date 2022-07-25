@@ -37,6 +37,7 @@ const Experiment = ({
   const [intermediate, setIntermediate] = useState<boolean>(false);
   const [startTime, setStartTime] = useState<number>(0);
   const [rtArr, setrtArr] = useState<number[]>([]);
+  const [responseType, setResponseType] = useState<string>("");
 
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
@@ -51,7 +52,7 @@ const Experiment = ({
           <div>
             <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
             id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} 
-            intermediate={intermediate} />
+            intermediate={intermediate} responseType={responseType}/>
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
@@ -73,7 +74,7 @@ const Experiment = ({
             {interVisible ? (
               <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
               id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} 
-              intermediate={intermediate} />
+              intermediate={intermediate} responseType={responseType}/>
             ) : (
               <Grid
                 trial={trials[trialIndex]}
@@ -88,6 +89,7 @@ const Experiment = ({
                 setIntermediate={setIntermediate}
                 setStartTime={setStartTime}
                 setResponseVal={setResponseVal}
+                setResponseType={setResponseType}
               />
             )}
           </div>

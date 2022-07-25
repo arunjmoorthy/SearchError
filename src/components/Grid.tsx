@@ -16,6 +16,7 @@ interface GridProps {
   setIntermediate: Dispatch<SetStateAction<boolean>>;
   setStartTime: Dispatch<SetStateAction<number>>;
   setResponseVal: Dispatch<SetStateAction<string>>;
+  setResponseType: Dispatch<SetStateAction<string>>;
 }
 
 export default function Grid({
@@ -30,7 +31,8 @@ export default function Grid({
   intermediate,
   setIntermediate,
   setStartTime,
-  setResponseVal
+  setResponseVal,
+  setResponseType
 }: GridProps) {
 
   let [setSize, SetSetSize] = useState<number>(25);
@@ -62,6 +64,7 @@ export default function Grid({
           results={results}
           intermediate={intermediate}
           setResponseVal={setResponseVal}
+          setResponseType={setResponseType}
         />
         <Row
           trial={trial}
@@ -74,6 +77,7 @@ export default function Grid({
           results={results}
           intermediate={intermediate}
           setResponseVal={setResponseVal}
+          setResponseType={setResponseType}
         />
         <Row
           trial={trial}
@@ -86,6 +90,7 @@ export default function Grid({
           results={results}
           intermediate={intermediate}
           setResponseVal={setResponseVal}
+          setResponseType={setResponseType}
         />
         <Row
           trial={trial}
@@ -98,6 +103,7 @@ export default function Grid({
           results={results}
           intermediate={intermediate}
           setResponseVal={setResponseVal}
+          setResponseType={setResponseType}
         />
         <Row
           trial={trial}
@@ -110,6 +116,7 @@ export default function Grid({
           results={results}
           intermediate={intermediate}
           setResponseVal={setResponseVal}
+          setResponseType={setResponseType}
         />
         <Row
           trial={trial}
@@ -122,6 +129,7 @@ export default function Grid({
           results={results}
           intermediate={intermediate}
           setResponseVal={setResponseVal}
+          setResponseType={setResponseType}
         />
         <Row
           trial={trial}
@@ -134,6 +142,7 @@ export default function Grid({
           results={results}
           intermediate={intermediate}
           setResponseVal={setResponseVal}
+          setResponseType={setResponseType}
         />
       </div>
     </div>
