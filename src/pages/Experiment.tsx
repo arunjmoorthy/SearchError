@@ -50,7 +50,8 @@ const Experiment = ({
         {trialIndex === 100 ? (
           <div>
             <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} />
+            id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} 
+            intermediate={intermediate} />
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
@@ -71,7 +72,8 @@ const Experiment = ({
           <div>
             {interVisible ? (
               <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
-              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal}  />
+              id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} 
+              intermediate={intermediate} />
             ) : (
               <Grid
                 trial={trials[trialIndex]}

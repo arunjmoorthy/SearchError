@@ -12,9 +12,10 @@ interface ResultProps {
   type: number[];
   targetLocArr: number[];
   responseVal: String;
+  intermediate: boolean
 }
 
-const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr, responseVal }: ResultProps) => {
+const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, targetLocArr, responseVal, intermediate }: ResultProps) => {
   
   let [RT, setRT] = useState<number>(0);
   let reactionTime = 0;
@@ -64,7 +65,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
     let endTime = new Date();
     reactionTime = (endTime.getTime())-startTime;
 
-    if(trialIndex < 100){
+    if(!intermediate){
       // console.log("<100");
       // console.log(trialIndex);
       // console.log(type);
@@ -82,7 +83,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
     reactionTime=0;
     const timer = setTimeout(() => {
       setInterVisible(false);
-    }, 1000);
+    }, 5);
     return () => clearTimeout(timer);
     
   }, []);
