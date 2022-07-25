@@ -50,7 +50,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
             },
             body: JSON.stringify({
                 id: id,
-                trialIndex: (trialIndex+1),
+                trialIndex: trialIndex,
                 first: first,
                 trialType: trialType,
                 targetLoc: targetLoc,
