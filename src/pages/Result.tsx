@@ -28,6 +28,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   let first = "first";
   let curTrial: number[] = [];
   let curOrient: number[] = [];
+  let setSize = 25;
   
   const pushData = async () => {
 
@@ -48,7 +49,8 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
                 reactionTime,
                 responseType,
                 curTrial,
-                curOrient
+                curOrient,
+                setSize
             }),
 
         });
