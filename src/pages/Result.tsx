@@ -29,6 +29,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   let curTrial: number[] = [];
   let curOrient: number[] = [];
   let setSize = 25;
+  let stimID = trialIndex;
   
   const pushData = async () => {
 
@@ -50,7 +51,8 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
                 responseType,
                 curTrial,
                 curOrient,
-                setSize
+                setSize,
+                stimID
             }),
 
         });
@@ -78,14 +80,14 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
       trialType = (type[trialIndex-1]);
       curTrial = trialArrs[trialIndex-1];
       curOrient = orientArrs[trialIndex-1];
-      console.log(curTrial);
-      console.log(curOrient);
+      stimID = trialIndex;
     } else{
       first = "second";
       targetLoc = (targetLocArr[100-trialIndex]);
       trialType = (type[100-trialIndex]);
       curTrial = trialArrs[100-trialIndex];
       curOrient = orientArrs[100-trialIndex];
+      stimID = 101-trialIndex;
     }
 
     console.log(curTrial);
@@ -94,7 +96,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
     reactionTime=0;
     const timer = setTimeout(() => {
       setInterVisible(false);
-    }, 1000);
+    }, 5);
     return () => clearTimeout(timer);
     
   }, []);
