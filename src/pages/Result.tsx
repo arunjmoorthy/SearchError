@@ -90,8 +90,6 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
       stimID = 101-trialIndex;
     }
 
-    console.log(curTrial);
-
     pushData();
     reactionTime=0;
     const timer = setTimeout(() => {
