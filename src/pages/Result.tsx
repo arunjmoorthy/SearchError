@@ -94,7 +94,7 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
     reactionTime=0;
     const timer = setTimeout(() => {
       setInterVisible(false);
-    }, 5);
+    }, 1000);
     return () => clearTimeout(timer);
     
   }, []);
