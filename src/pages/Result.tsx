@@ -14,17 +14,21 @@ interface ResultProps {
   responseVal: String;
   intermediate: boolean
   responseType: string;
+  trialArrs: number[][];
+  orientArrs: number[][];
 }
 
 const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, trialIndex, type, 
-  targetLocArr, responseVal, intermediate, responseType }: ResultProps) => {
+  targetLocArr, responseVal, intermediate, responseType, trialArrs, orientArrs }: ResultProps) => {
   
   let [RT, setRT] = useState<number>(0);
   let reactionTime = 0;
   let targetLoc = 999;
   let trialType = 0; //0 is absent trial and 1 is target-present trial
   let first = "first";
-
+  let curTrial: number[] = [];
+  let curOrient: number[] = [];
+  
   const pushData = async () => {
 
     const request = await fetch(
@@ -42,7 +46,9 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
                 targetLoc,
                 responseVal,
                 reactionTime,
-                responseType
+                responseType,
+                curTrial,
+                curOrient
             }),
 
         });
@@ -68,12 +74,19 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
       first = "first";
       targetLoc = (targetLocArr[trialIndex-1]);
       trialType = (type[trialIndex-1]);
-      // console.log(trialType)
+      curTrial = trialArrs[trialIndex-1];
+      curOrient = orientArrs[trialIndex-1];
+      console.log(curTrial);
+      console.log(curOrient);
     } else{
       first = "second";
       targetLoc = (targetLocArr[100-trialIndex]);
       trialType = (type[100-trialIndex]);
+      curTrial = trialArrs[100-trialIndex];
+      curOrient = orientArrs[100-trialIndex];
     }
+
+    console.log(curTrial);
 
     pushData();
     reactionTime=0;

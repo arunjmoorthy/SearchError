@@ -103,6 +103,8 @@ function App() {
     temp = shuffleMatrix(temp);
     setTrials(temp);
 
+    console.log(temp);
+
     let tempOrient = [];
     let tempTrial = [];
     let tempType = [];
@@ -118,9 +120,9 @@ function App() {
       for (let j = 0; j < tempStim.length; j++) {
         let stimu: Stimulus = tempStim[j];
         orient.push(stimu.orientation);
-        trl.push(stimu.category);
-        typ = stimu.type;
-        if(typ === 2){
+        trl.push(stimu.type);
+        typ = stimu.category;
+        if(stimu.type === 2){
           tempTargLoc.push(j);
           hasT = true;
           tempType.push(1);
@@ -132,7 +134,6 @@ function App() {
       }
       tempOrient.push(orient);
       tempTrial.push(trl);
-      
     }
 
     setTargetLocArr(tempTargLoc);

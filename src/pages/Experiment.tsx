@@ -42,8 +42,6 @@ const Experiment = ({
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
   let [responseVal, setResponseVal] = useState<string>("incorrect");
-
-  //console.log(type);
   
   return (
     <div className={styles.exp}>
@@ -52,7 +50,7 @@ const Experiment = ({
           <div>
             <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
             id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} 
-            intermediate={intermediate} responseType={responseType}/>
+            intermediate={intermediate} responseType={responseType} trialArrs={trialArrs} orientArrs={orientArrs}/>
             <Intermediate
               intermediate={intermediate}
               setTrialIndex={setTrialIndex}
@@ -74,7 +72,7 @@ const Experiment = ({
             {interVisible ? (
               <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
               id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} 
-              intermediate={intermediate} responseType={responseType}/>
+              intermediate={intermediate} responseType={responseType} trialArrs={trialArrs} orientArrs={orientArrs}/>
             ) : (
               <Grid
                 trial={trials[trialIndex]}
