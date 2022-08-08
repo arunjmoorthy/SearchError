@@ -6,7 +6,6 @@ import { Stimulus } from "./interfaces/Stimulus";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-
 //shuffle 2D array
 function shuffleMatrix(arr2: Stimulus[][]) {
   for (let i = arr2.length - 1; i > 0; i--) {
@@ -141,9 +140,6 @@ function App() {
     setTrialArrs(tempTrial);
     setType(tempType);
 
-    // console.log(tempOrient);
-    // console.log(tempTrial);
-    //console.log(tempType);
   }, []);
 
   return (

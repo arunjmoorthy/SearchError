@@ -17,6 +17,7 @@ interface GridProps {
   setStartTime: Dispatch<SetStateAction<number>>;
   setResponseVal: Dispatch<SetStateAction<string>>;
   setResponseType: Dispatch<SetStateAction<string>>;
+  type: number[];
 }
 
 export default function Grid({
@@ -32,7 +33,8 @@ export default function Grid({
   setIntermediate,
   setStartTime,
   setResponseVal,
-  setResponseType
+  setResponseType,
+  type
 }: GridProps) {
 
   let [setSize, SetSetSize] = useState<number>(25);
@@ -65,6 +67,7 @@ export default function Grid({
           intermediate={intermediate}
           setResponseVal={setResponseVal}
           setResponseType={setResponseType}
+          type={type}
         />
         <Row
           trial={trial}
@@ -78,6 +81,7 @@ export default function Grid({
           intermediate={intermediate}
           setResponseVal={setResponseVal}
           setResponseType={setResponseType}
+          type={type}
         />
         <Row
           trial={trial}
@@ -91,6 +95,7 @@ export default function Grid({
           intermediate={intermediate}
           setResponseVal={setResponseVal}
           setResponseType={setResponseType}
+          type={type}
         />
         <Row
           trial={trial}
@@ -104,6 +109,7 @@ export default function Grid({
           intermediate={intermediate}
           setResponseVal={setResponseVal}
           setResponseType={setResponseType}
+          type={type}
         />
         <Row
           trial={trial}
@@ -117,6 +123,7 @@ export default function Grid({
           intermediate={intermediate}
           setResponseVal={setResponseVal}
           setResponseType={setResponseType}
+          type={type}
         />
         <Row
           trial={trial}
@@ -130,6 +137,7 @@ export default function Grid({
           intermediate={intermediate}
           setResponseVal={setResponseVal}
           setResponseType={setResponseType}
+          type={type}
         />
         <Row
           trial={trial}
@@ -143,6 +151,7 @@ export default function Grid({
           intermediate={intermediate}
           setResponseVal={setResponseVal}
           setResponseType={setResponseType}
+          type={type}
         />
       </div>
     </div>

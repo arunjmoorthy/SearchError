@@ -17,6 +17,7 @@ interface RowProps {
   intermediate: boolean;
   setResponseVal: Dispatch<SetStateAction<string>>;
   setResponseType: Dispatch<SetStateAction<string>>;
+  type: number[];
 }
 
 export default function Row({
@@ -30,13 +31,14 @@ export default function Row({
   setResults,
   intermediate,
   setResponseVal,
-  setResponseType
+  setResponseType,
+  type
 }: RowProps) {
   const [images, setImages] = useState<Stimulus[]>([]);
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClickT = () => {
 
     let arr: number[] = results;
     arr.push(1);
@@ -49,6 +51,39 @@ export default function Row({
     } else {
       setTrialIndex(trialIndex + 1);
       setSuccess(true);
+      setInterVisible(true);
+    }
+  };
+
+  const handleClickL = () => {
+
+    let arr: number[] = results;
+    arr.push(0);
+    setResults(arr);
+    setResponseVal("incorrect");
+
+    if(intermediate){
+      if(type[100-trialIndex] == 0){
+        setResponseType("FA");
+      }
+      else{
+        setResponseType("MISS_FA")
+      }
+    }
+    else{
+      if(type[trialIndex] == 0){
+        setResponseType("FA");
+      }
+      else{
+        setResponseType("MISS_FA")
+      }
+    }
+
+    if (trialIndex === 100 && intermediate) {
+      navigate("/conclusion");
+    } else {
+      setTrialIndex(trialIndex + 1);
+      setSuccess(false);
       setInterVisible(true);
     }
   };
@@ -111,6 +146,7 @@ export default function Row({
                       style={{
                         transform: `rotate(${stimulus.orientation}deg)`,
                       }}
+                      onClick={handleClickL}
                     />
                   ) : (
                     <img
@@ -119,7 +155,7 @@ export default function Row({
                       style={{
                         transform: `rotate(${stimulus.orientation}deg)`,
                       }}
-                      onClick={handleClick}
+                      onClick={handleClickT}
                     />
                   )}
                 </div>

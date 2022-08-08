@@ -88,6 +88,7 @@ const Experiment = ({
                 setStartTime={setStartTime}
                 setResponseVal={setResponseVal}
                 setResponseType={setResponseType}
+                type={type}
               />
             )}
           </div>

@@ -33,6 +33,9 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
   
   const pushData = async () => {
 
+    console.log(responseType);
+    console.log(responseVal);
+
     const request = await fetch(
         `${process.env.REACT_APP_API_URL}/addTrial`,
         {
