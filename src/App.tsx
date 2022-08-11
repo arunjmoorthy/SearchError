@@ -45,8 +45,8 @@ function App() {
     let temp: Stimulus[][] = [];
     let stimuli: Stimulus[] = [];
     let stim: Stimulus;
-    // target absent trials (change j<5 back to j<50)
-    for (let j = 0; j < 5; j++) {
+    // target absent trials (change j<10 back to j<50)
+    for (let j = 0; j < 10; j++) {
       for (let i = 0; i < 25; i++) {
         stim = {
           type: 1,
@@ -70,8 +70,8 @@ function App() {
       stimuli = [];
     }
 
-    // target present (change i<5 back to i<50)
-    for (let i = 0; i < 5; i++) {
+    // target present (change i<10 back to i<50)
+    for (let i = 0; i < 10; i++) {
       for (let j = 0; j < 24; j++) {
         stim = {
           type: 1,
