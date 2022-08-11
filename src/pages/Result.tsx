@@ -86,11 +86,11 @@ const Result = ({ setInterVisible, success, startTime, rtArr, setrtArr, id, tria
       stimID = trialIndex;
     } else{
       first = "second";
-      targetLoc = (targetLocArr[10-trialIndex]); //change 10 back to 100
-      trialType = (type[10-trialIndex]); //change 10 back to 100
-      curTrial = trialArrs[10-trialIndex]; //change 10 back to 100
-      curOrient = orientArrs[10-trialIndex]; //change 10 back to 100
-      stimID = 11-trialIndex; //change 11 back to 101
+      targetLoc = (targetLocArr[100-trialIndex]);
+      trialType = (type[100-trialIndex]);
+      curTrial = trialArrs[100-trialIndex];
+      curOrient = orientArrs[100-trialIndex];
+      stimID = 101-trialIndex;
     }
 
     pushData();
