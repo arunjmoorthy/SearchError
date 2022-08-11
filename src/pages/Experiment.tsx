@@ -42,11 +42,11 @@ const Experiment = ({
   // intertrial screen
   const [interVisible, setInterVisible] = useState<boolean>(false);
   let [responseVal, setResponseVal] = useState<string>("incorrect");
-  
+  // on line 49, change 10 back to 100
   return (
     <div className={styles.exp}>
       <div>
-        {trialIndex === 100 ? (
+        {trialIndex === 10 ? (
           <div>
             <Result setInterVisible={setInterVisible} success={success} startTime={startTime} rtArr={rtArr} setrtArr={setrtArr} 
             id={id} trialIndex={trialIndex} type={type} targetLocArr={targetLocArr} responseVal={responseVal} 
