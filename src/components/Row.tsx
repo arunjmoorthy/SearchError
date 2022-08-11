@@ -45,8 +45,8 @@ export default function Row({
     setResults(arr);
     setResponseVal("correct");
     setResponseType("HIT");
-
-    if (trialIndex === 100 && intermediate) {
+// in line 49, change 10 back to 100
+    if (trialIndex === 10 && intermediate) {
       navigate("/conclusion");
     } else {
       setTrialIndex(trialIndex + 1);
@@ -61,9 +61,9 @@ export default function Row({
     arr.push(0);
     setResults(arr);
     setResponseVal("incorrect");
-
+// in line 66, change 10 back to 100
     if(intermediate){
-      if(type[100-trialIndex] == 0){
+      if(type[10-trialIndex] == 0){
         setResponseType("FA");
       }
       else{
@@ -78,8 +78,8 @@ export default function Row({
         setResponseType("MISS_FA")
       }
     }
-
-    if (trialIndex === 100 && intermediate) {
+// in line 82, change 10 back to 100
+    if (trialIndex === 10 && intermediate) {
       navigate("/conclusion");
     } else {
       setTrialIndex(trialIndex + 1);
